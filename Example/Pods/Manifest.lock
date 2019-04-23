@@ -1,0 +1,16 @@
+PODS:
+  - ATProxy (0.1.0)
+
+DEPENDENCIES:
+  - ATProxy (from `../`)
+
+EXTERNAL SOURCES:
+  ATProxy:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  ATProxy: e4586ab3c66dcc99bf471b4b9d6966a65bbad544
+
+PODFILE CHECKSUM: 1273e689477091d7541dfc617fc63a546040807a
+
+COCOAPODS: 1.6.1

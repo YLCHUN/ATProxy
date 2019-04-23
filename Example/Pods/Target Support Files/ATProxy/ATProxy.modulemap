@@ -1,0 +1,6 @@
+framework module ATProxy {
+  umbrella header "ATProxy-umbrella.h"
+
+  export *
+  module * { export * }
+}
