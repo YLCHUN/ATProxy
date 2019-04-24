@@ -9,6 +9,37 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+### UITabBarController
+```
+OvalMaskTransition *transition = [[OvalMaskTransition alloc] initWithOperation:UINavigationControllerOperationPush timeInterval:2 anchor:self.view.center];
+[self setSelectedIndex:1 transition:transition];
+```
+
+### UIViewController
+```   
+- (UIPanGestureRecognizer *)transitionGestureRecognizer {
+UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc] init];
+__weak typeof(self) wself = self;
+[pgr setInteractiveDirection:ATGestureRecognizerDirectionLeft transitional:^{
+[wself transit];
+}];
+return pgr;
+}
+
+- (IBAction)transit {
+PageCoverTransition *transition = [PageCoverTransition transitionWithType:PageCoverTransitionTypePush];
+[self presentViewController:[SecViewController new] transitional:transition completion:nil];
+//[self.navigationController pushViewController:[SecViewController new] transitional:transition];
+
+}
+
+//- (IBAction)transit {
+//    PageCoverTransition *transition = [PageCoverTransition transitionWithType:PageCoverTransitionTypePop];
+//    [self dismissViewControllerTtransitional:transition completion:nil];
+//    //[self.navigationController popViewControllerTransitional:transition];
+//}
+```
+
 ## Requirements
 
 ## Installation
