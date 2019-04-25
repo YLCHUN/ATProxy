@@ -69,6 +69,7 @@
         fromView.transform = rotateTransform();
         fromView.alpha = 0;
     } completion:^(BOOL finished) {
+        fromView.transform = CGAffineTransformIdentity;
         fromView.alpha = 1;
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
