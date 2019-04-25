@@ -11,13 +11,13 @@
 #endif
 
 #import "ATProxy.h"
+#import "_UIAnimatedTransitioning.h"
+#import "_UIInteractiveTransition.h"
+#import "_UIViewControllerTransition.h"
 #import "UINavigationController+ATProxy.h"
 #import "UIPanGestureRecognizer+ATProxy.h"
 #import "UITabBarController+ATProxy.h"
 #import "UIViewController+ATProxy.h"
-#import "_UIAnimatedTransitioning.h"
-#import "_UIInteractiveTransition.h"
-#import "_UIViewControllerTransition.h"
 
 FOUNDATION_EXPORT double ATProxyVersionNumber;
 FOUNDATION_EXPORT const unsigned char ATProxyVersionString[];
