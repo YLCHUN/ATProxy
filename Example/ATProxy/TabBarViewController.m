@@ -10,6 +10,7 @@
 #import <ATProxy/ATProxy.h>
 #import "OvalMaskTransition.h"
 #import "FirViewController.h"
+#import "NavigationController.h"
 
 @interface TabBarViewController ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) UITabBar *customTabBar;
@@ -20,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UINavigationController *vc0 = [[UINavigationController alloc] initWithRootViewController:[FirViewController new]];
+    NavigationController *vc0 = [[NavigationController alloc] initWithRootViewController:[FirViewController new]];
     vc0.navigationBar.hidden = YES;
     vc0.tabBarItem.title = @"vc0";
     UIViewController *vc1 = [UIViewController new];

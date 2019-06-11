@@ -18,7 +18,7 @@
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     return 2.0f;
 }
 
@@ -64,7 +64,7 @@ static UIView* squareView(UIImage *image, CGRect frame) {
     }
 }
 
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = transitionContext.containerView;

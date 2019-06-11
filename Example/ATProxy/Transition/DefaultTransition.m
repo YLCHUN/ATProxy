@@ -12,7 +12,7 @@
 
 @implementation DefaultTransition
 {
-    id <UIViewControllerContextTransitioning> _transitionContext;
+    id<UIViewControllerContextTransitioning> _transitionContext;
 }
 @synthesize type = _type;
 - (instancetype)initWithTransitionType:(TransitionOperation)type {
@@ -22,11 +22,11 @@
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(nullable id<UIViewControllerContextTransitioning>)transitionContext {
     return 1;
 }
 
-- (void)animateTransition:(nonnull id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(nonnull id<UIViewControllerContextTransitioning>)transitionContext {
     switch (_type) {
         case TransitionOperationPush:
             [self doPushAnimation:transitionContext];
@@ -38,7 +38,7 @@
 }
 
 
-- (void)doPushAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPushAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
 
     [transitionContext.containerView addSubview:toView];
@@ -60,7 +60,7 @@
 
 }
 
-- (void)doPopAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPopAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
 
     [transitionContext.containerView addSubview:toView];

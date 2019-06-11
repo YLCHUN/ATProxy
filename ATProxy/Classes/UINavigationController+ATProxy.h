@@ -10,12 +10,12 @@
 
 @interface UINavigationController (ATProxy)
 
-- (void)pushViewController:(UIViewController * __nonnull)viewController transitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional;
+- (void)pushViewController:(UIViewController * __nonnull)viewController transitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional;
 
-- (UIViewController *_Nonnull)popViewControllerTransitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional;
+- (UIViewController *_Nonnull)popViewControllerTransitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional;
 
-- (NSArray<UIViewController *> *_Nonnull)popToViewController:(UIViewController * __nonnull)viewController transitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional;
+- (NSArray<UIViewController *> *_Nonnull)popToViewController:(UIViewController * __nonnull)viewController transitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional;
 
-- (NSArray<UIViewController *> *_Nonnull)popToRootViewControllerTtransitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional;
+- (NSArray<UIViewController *> *_Nonnull)popToRootViewControllerTtransitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional;
 
 @end

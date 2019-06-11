@@ -10,11 +10,11 @@
 #import <objc/runtime.h>
 
 @implementation _UIAnimatedTransitioning {
-    id <UIViewControllerAnimatedTransitioning> _transition;
+    id<UIViewControllerAnimatedTransitioning> _transition;
     void(^_completion)(void);
 }
 
-- (instancetype)initWithTransition:(id <UIViewControllerAnimatedTransitioning>)transition completion:(void(^)(void))completion {
+- (instancetype)initWithTransition:(id<UIViewControllerAnimatedTransitioning>)transition completion:(void(^)(void))completion {
     _transition = transition;
     _completion = completion;
     return self;

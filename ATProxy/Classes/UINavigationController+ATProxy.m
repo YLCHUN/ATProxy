@@ -12,43 +12,31 @@
 
 @implementation UINavigationController (ATProxy)
 
-- (void)pushViewController:(UIViewController *)viewController transitional:(id <UIViewControllerAnimatedTransitioning>)transitional {
+- (void)pushViewController:(UIViewController *)viewController transitional:(id<UIViewControllerAnimatedTransitioning>)transitional {
     [self setupTransition:transitional];
     [self pushViewController:viewController animated:transitional != nil];
 }
 
-- (UIViewController *)popViewControllerTransitional:(id <UIViewControllerAnimatedTransitioning>)transitional {
+- (UIViewController *)popViewControllerTransitional:(id<UIViewControllerAnimatedTransitioning>)transitional {
     [self setupTransition:transitional];
     return [self popViewControllerAnimated:transitional != nil];
 }
 
-- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController transitional:(id <UIViewControllerAnimatedTransitioning>)transitional {
+- (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController transitional:(id<UIViewControllerAnimatedTransitioning>)transitional {
     [self setupTransition:transitional];
     return [self popToViewController:viewController animated:transitional != nil];
 }
 
-- (NSArray<UIViewController *> *)popToRootViewControllerTtransitional:(id <UIViewControllerAnimatedTransitioning>)transitional {
+- (NSArray<UIViewController *> *)popToRootViewControllerTtransitional:(id<UIViewControllerAnimatedTransitioning>)transitional {
     [self setupTransition:transitional];
     return [self popToRootViewControllerAnimated:transitional != nil];
 }
 
-- (void)setupTransition:(id <UIViewControllerAnimatedTransitioning>)transition {
+- (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
     [_UIViewControllerTransition setupTransition:transition delegate:self.delegate reset:^(id delegate) {
-        [self atp_setDelegate:delegate];
+        atp_setter([UINavigationController class], @selector(setDelegate:), self, delegate);
     }];
-}
-
-
-+ (void)initialize {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        atp_swizzleInstanceMethod([UINavigationController class], @selector(setDelegate:), @selector(atp_setDelegate:));
-    });
-}
-
-- (void)atp_setDelegate:(id <UINavigationControllerDelegate>)delegate {
-    [self atp_setDelegate:delegate];
 }
 
 @end

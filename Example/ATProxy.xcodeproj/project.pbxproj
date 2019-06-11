@@ -18,6 +18,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
+		A986D59A22AFD97700EDD16E /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A986D59922AFD97700EDD16E /* NavigationController.m */; };
 		A9C30935226F00D30034E08D /* StackTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C3091C226F00D30034E08D /* StackTransition.m */; };
 		A9C30936226F00D30034E08D /* OvalMaskTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C3091E226F00D30034E08D /* OvalMaskTransition.m */; };
 		A9C30937226F00D30034E08D /* RRTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C30920226F00D30034E08D /* RRTransition.m */; };
@@ -76,6 +77,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		7C7C1F1CCDA2E37EA3ACA4F4 /* Pods-ATProxy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATProxy_Tests.release.xcconfig"; path = "Target Support Files/Pods-ATProxy_Tests/Pods-ATProxy_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A721D324099FAECC7443B106 /* ATProxy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ATProxy.podspec; path = ../ATProxy.podspec; sourceTree = "<group>"; };
+		A986D59822AFD97700EDD16E /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		A986D59922AFD97700EDD16E /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		A9C3091C226F00D30034E08D /* StackTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackTransition.m; sourceTree = "<group>"; };
 		A9C3091D226F00D30034E08D /* BrokenTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrokenTransition.h; sourceTree = "<group>"; };
 		A9C3091E226F00D30034E08D /* OvalMaskTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OvalMaskTransition.m; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				A9C3094C226F01060034E08D /* SecViewController.xib */,
 				A9C30943226F01050034E08D /* TabBarViewController.h */,
 				A9C30947226F01060034E08D /* TabBarViewController.m */,
+				A986D59822AFD97700EDD16E /* NavigationController.h */,
+				A986D59922AFD97700EDD16E /* NavigationController.m */,
 				A9C3091B226F00D30034E08D /* Transition */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -459,6 +464,7 @@
 			files = (
 				A9C3093B226F00D30034E08D /* CheckerboardTransition.m in Sources */,
 				A9C3093C226F00D30034E08D /* BrokenTransition.m in Sources */,
+				A986D59A22AFD97700EDD16E /* NavigationController.m in Sources */,
 				A9C30935226F00D30034E08D /* StackTransition.m in Sources */,
 				A9C3093A226F00D30034E08D /* RotateTransition.m in Sources */,
 				A9C30939226F00D30034E08D /* PageTransition.m in Sources */,

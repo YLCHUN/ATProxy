@@ -19,12 +19,12 @@
 }
 
 
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     return 2.0f;
 }
 
 //TODO: 动画过程中中间黑线
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = transitionContext.containerView;

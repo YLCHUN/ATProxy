@@ -32,13 +32,13 @@
 /**
  *  动画时长
  */
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext{
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{
     return 1;
 }
 /**
  *  如何执行过渡动画
  */
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext{
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext{
     switch (_type) {
         case TransitionOperationPush:
             [self doPushAnimation:transitionContext];
@@ -67,7 +67,7 @@
 /**
  *  执行push过渡动画
  */
-- (void)doPushAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPushAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = [transitionContext containerView];
@@ -106,7 +106,7 @@
 /**
  *  执行pop过渡动画
  */
-- (void)doPopAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPopAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = [transitionContext containerView];

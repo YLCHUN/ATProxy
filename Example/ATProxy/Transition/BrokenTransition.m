@@ -13,7 +13,7 @@
     UIDynamicAnimator * _dynamicAnimator;
 }
 
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     return 2.0f;
 }
 
@@ -46,7 +46,7 @@ static UIView* squareView(UIImage *image, CGRect frame) {
     return squareView;
 }
 
-static UIDynamicBehavior *getItemDynamicBehavior(id <UIDynamicItem> item) {
+static UIDynamicBehavior *getItemDynamicBehavior(id<UIDynamicItem> item) {
     UIDynamicBehavior *dynamicBehavior = [[UIDynamicBehavior alloc] init];
     UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] init];
     gravityBehavior.magnitude = 2.5;
@@ -68,7 +68,7 @@ static UIDynamicBehavior *getItemDynamicBehavior(id <UIDynamicItem> item) {
     return dynamicBehavior;
 }
 
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = transitionContext.containerView;

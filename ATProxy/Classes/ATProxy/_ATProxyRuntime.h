@@ -8,4 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXTERN void atp_swizzleInstanceMethod(Class cls, SEL originalSelector, SEL swizzledSelector);
+//FOUNDATION_EXTERN void atp_swizzleInstanceMethod(Class cls, SEL originalSelector, SEL swizzledSelector);
+FOUNDATION_EXTERN void atp_setter(Class cls, SEL sel, id self, id obj);

@@ -22,7 +22,7 @@
     id _delegate;
 }
 
-+ (void)setupTransition:(id <UIViewControllerAnimatedTransitioning>)transition delegate:(id)delegate reset:(void(^)(id delegate))reset {
++ (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition delegate:(id)delegate reset:(void(^)(id delegate))reset {
     if (!transition) return;
     if (delegate && object_getClass(delegate) == [_UIViewControllerTransition class]) {
         [(_UIViewControllerTransition *)delegate completion];
@@ -35,7 +35,7 @@
     reset(t);
 }
 
-- (instancetype)initWithTransition:(id <UIViewControllerAnimatedTransitioning>)transition interaction:(id <UIViewControllerInteractiveTransitioning>)interaction delegate:(id)delegate completion:(void(^)(void))completion {
+- (instancetype)initWithTransition:(id<UIViewControllerAnimatedTransitioning>)transition interaction:(id<UIViewControllerInteractiveTransitioning>)interaction delegate:(id)delegate completion:(void(^)(void))completion {
     _delegate = delegate;
     _completion = completion;
     __weak typeof(self) wself = self;
@@ -93,42 +93,42 @@
 }
 
 #pragma mark delegate
-- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
                                                   toViewController:(UIViewController *)toVC {
-    return (id <UIViewControllerAnimatedTransitioning>)_transition;
+    return (id<UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
-                                   interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController {
+- (id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+                                   interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>) animationController {
     return _interaction;
 }
 
-- (id <UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController
+- (id<UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController
                      animationControllerForTransitionFromViewController:(UIViewController *)fromVC
                                                        toViewController:(UIViewController *)toVC {
-    return (id <UIViewControllerAnimatedTransitioning>)_transition;
+    return (id<UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (id <UIViewControllerInteractiveTransitioning>)tabBarController:(UITabBarController *)tabBarController
-                               interactionControllerForAnimationController: (id <UIViewControllerAnimatedTransitioning>)animationController {
+- (id<UIViewControllerInteractiveTransitioning>)tabBarController:(UITabBarController *)tabBarController
+                               interactionControllerForAnimationController: (id<UIViewControllerAnimatedTransitioning>)animationController {
     return _interaction;
 }
 
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
-    return (id <UIViewControllerAnimatedTransitioning>)_transition;
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+    return (id<UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
-    return (id <UIViewControllerAnimatedTransitioning>)_transition;
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+    return (id<UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id<UIViewControllerAnimatedTransitioning>)animator {
     return _interaction;
 }
 
-- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
+- (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator {
     return _interaction;
 }
 @end

@@ -18,11 +18,11 @@
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(nullable id<UIViewControllerContextTransitioning>)transitionContext {
     return 1;
 }
 
-- (void)animateTransition:(nonnull id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(nonnull id<UIViewControllerContextTransitioning>)transitionContext {
     switch (_type) {
         case TransitionOperationPush:
             [self doPushAnimation:transitionContext];
@@ -38,7 +38,7 @@
 }
 
 
-- (void)doPushAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPushAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
 
@@ -57,7 +57,7 @@
     }];
 }
 
-- (void)doPopAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPopAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     

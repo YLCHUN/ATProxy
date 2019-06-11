@@ -10,8 +10,8 @@
 
 @interface UIViewController (ATProxy)
 
-- (void)presentViewController:(UIViewController * __nonnull)viewControllerToPresent transitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional completion:(void (^ __nullable)(void))completion;
+- (void)presentViewController:(UIViewController * __nonnull)viewControllerToPresent transitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional completion:(void (^ __nullable)(void))completion;
 
-- (void)dismissViewControllerTtransitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional completion: (void (^ __nullable)(void))completion;
+- (void)dismissViewControllerTtransitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional completion: (void (^ __nullable)(void))completion;
 
 @end

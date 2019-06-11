@@ -12,34 +12,35 @@
 
 @implementation UIViewController (ATProxy)
 
-- (void)presentViewController:(UIViewController *)viewControllerToPresent transitional:(id <UIViewControllerAnimatedTransitioning>)transitional completion:(void (^ __nullable)(void))completion {
+- (void)presentViewController:(UIViewController *)viewControllerToPresent transitional:(id<UIViewControllerAnimatedTransitioning>)transitional completion:(void(^)(void))completion {
     [viewControllerToPresent setupTransition:transitional];
     [self presentViewController:viewControllerToPresent animated:transitional != nil completion:completion];
 }
 
-- (void)dismissViewControllerTtransitional:(id <UIViewControllerAnimatedTransitioning>)transitional completion: (void (^ __nullable)(void))completion {
+- (void)dismissViewControllerTtransitional:(id<UIViewControllerAnimatedTransitioning>)transitional completion:(void (^)(void))completion {
     [self setupTransition:transitional];
     [self dismissViewControllerAnimated:transitional != nil completion:completion];
 }
 
-- (void)setupTransition:(id <UIViewControllerAnimatedTransitioning>)transition {
+- (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
     [_UIViewControllerTransition setupTransition:transition delegate:self.transitioningDelegate reset:^(id delegate) {
-        [self atp_setTransitioningDelegate:delegate];
+//        [self atp_setTransitioningDelegate:delegate];
+        atp_setter([UIViewController class], @selector(setTransitioningDelegate:), self, delegate);
     }];
 }
 
-+ (void)initialize {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        atp_swizzleInstanceMethod([UIViewController class], @selector(setTransitioningDelegate:), @selector(atp_setTransitioningDelegate:));
-        
-    });
-}
-
-- (void)atp_setTransitioningDelegate:(id <UIViewControllerTransitioningDelegate>)transitioningDelegate {
-    [self atp_setTransitioningDelegate:transitioningDelegate];
-}
+//+ (void)initialize {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        atp_swizzleInstanceMethod([UIViewController class], @selector(setTransitioningDelegate:), @selector(atp_setTransitioningDelegate:));
+//
+//    });
+//}
+//
+//- (void)atp_setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
+//    [self atp_setTransitioningDelegate:transitioningDelegate];
+//}
 
 @end
 

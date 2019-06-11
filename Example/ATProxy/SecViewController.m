@@ -58,43 +58,43 @@
 - (EventHandler *)eventHandler {
     EventHandler *handler = [EventHandler new];
     [handler setEvent:@"BrokenTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [BrokenTransition new];
+        id<UIViewControllerAnimatedTransitioning> t = [BrokenTransition new];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"CheckerboardTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[CheckerboardTransition alloc] initWithTransitionType:TransitionOperationPop];
+        id<UIViewControllerAnimatedTransitioning> t = [[CheckerboardTransition alloc] initWithTransitionType:TransitionOperationPop];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"RRTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[RRTransition alloc] initWithTransitionType:TransitionOperationPop];
+        id<UIViewControllerAnimatedTransitioning> t = [[RRTransition alloc] initWithTransitionType:TransitionOperationPop];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"RadiationTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[RadiationTransition alloc] initWithTransitionType:TransitionOperationPop direction:RadiationDirectionVertical];
+        id<UIViewControllerAnimatedTransitioning> t = [[RadiationTransition alloc] initWithTransitionType:TransitionOperationPop direction:RadiationDirectionVertical];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"BusDoorTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[BusDoorTransition alloc] initWithTransitionType:TransitionOperationPop];
+        id<UIViewControllerAnimatedTransitioning> t = [[BusDoorTransition alloc] initWithTransitionType:TransitionOperationPop];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"OvalMaskTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[OvalMaskTransition alloc] initWithTransitionType:TransitionOperationPop anchor:self.view.center];
+        id<UIViewControllerAnimatedTransitioning> t = [[OvalMaskTransition alloc] initWithTransitionType:TransitionOperationPop anchor:self.view.center];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"PageCoverTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[PageCoverTransition alloc] initWithTransitionType:TransitionOperationPop];
+        id<UIViewControllerAnimatedTransitioning> t = [[PageCoverTransition alloc] initWithTransitionType:TransitionOperationPop];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"PageTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[PageTransition alloc] initWithTransitionType:TransitionOperationPop];
+        id<UIViewControllerAnimatedTransitioning> t = [[PageTransition alloc] initWithTransitionType:TransitionOperationPop];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"RotateTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[RotateTransition alloc] initWithTransitionType:TransitionOperationPop];
+        id<UIViewControllerAnimatedTransitioning> t = [[RotateTransition alloc] initWithTransitionType:TransitionOperationPop];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"StackTransition" handle:^(id arg) {
-        id <UIViewControllerAnimatedTransitioning> t = [[StackTransition alloc] initWithTransitionType:TransitionOperationPop];
+        id<UIViewControllerAnimatedTransitioning> t = [[StackTransition alloc] initWithTransitionType:TransitionOperationPop];
         [self hideWithTransitional:t];
     }];
     [handler setEvent:@"ViewTransition" handle:^(id arg) {
@@ -107,7 +107,7 @@
     return handler;
 }
 
-- (void)hideWithTransitional:(id <UIViewControllerAnimatedTransitioning>) t {
+- (void)hideWithTransitional:(id<UIViewControllerAnimatedTransitioning>) t {
     [self dismissViewControllerTtransitional:t completion:nil];
 //    [self.navigationController popViewControllerTransitional:t];
 }

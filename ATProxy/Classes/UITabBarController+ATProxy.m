@@ -12,7 +12,7 @@
 
 @implementation UITabBarController (ATProxy)
 
-- (void)setSelectedIndex:(NSUInteger)selectedIndex transitional:(id <UIViewControllerAnimatedTransitioning>)transitional {
+- (void)setSelectedIndex:(NSUInteger)selectedIndex transitional:(id<UIViewControllerAnimatedTransitioning>)transitional {
     if (selectedIndex >= self.viewControllers.count || selectedIndex == self.selectedIndex) return;
     if (transitional) {
         UIBarButtonItem *item = (UIBarButtonItem *)self.tabBar.items[selectedIndex];
@@ -25,7 +25,7 @@
     [self setSelectedIndex:selectedIndex];
 }
 
-- (void)setSelectedViewController:(UIViewController *)selectedViewController transitional:(id <UIViewControllerAnimatedTransitioning>)transitional {
+- (void)setSelectedViewController:(UIViewController *)selectedViewController transitional:(id<UIViewControllerAnimatedTransitioning>)transitional {
     if (selectedViewController == self.selectedViewController || ![self.viewControllers containsObject:selectedViewController]) return;
     if (transitional) {
         UIBarButtonItem *item = (UIBarButtonItem *)selectedViewController.tabBarItem;
@@ -38,24 +38,25 @@
     [self setSelectedViewController:selectedViewController];
 }
 
-- (void)setupTransition:(id <UIViewControllerAnimatedTransitioning>)transition {
+- (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
     [_UIViewControllerTransition setupTransition:transition delegate:self.delegate reset:^(id delegate) {
-        [self atp_setDelegate:delegate];
+//        [self atp_setDelegate:delegate];
+        atp_setter([UITabBarController class], @selector(setDelegate:), self, delegate);
     }];
 }
 
 
-+ (void)initialize {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        atp_swizzleInstanceMethod([UITabBarController class], @selector(setDelegate:), @selector(atp_setDelegate:));
-    });
-}
-
-- (void)atp_setDelegate:(id <UITabBarControllerDelegate>)delegate {
-    [self atp_setDelegate:delegate];
-}
+//+ (void)initialize {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        atp_swizzleInstanceMethod([UITabBarController class], @selector(setDelegate:), @selector(atp_setDelegate:));
+//    });
+//}
+//
+//- (void)atp_setDelegate:(id<UITabBarControllerDelegate>)delegate {
+//    [self atp_setDelegate:delegate];
+//}
 
 @end
 

@@ -10,9 +10,9 @@
 
 @interface UITabBarController (ATProxy)
 
-- (void)setSelectedIndex:(NSUInteger)selectedIndex transitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional;
+- (void)setSelectedIndex:(NSUInteger)selectedIndex transitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional;
 
-- (void)setSelectedViewController:(UIViewController * __nonnull)selectedViewController transitional:(id <UIViewControllerAnimatedTransitioning> __nullable)transitional;
+- (void)setSelectedViewController:(UIViewController * __nonnull)selectedViewController transitional:(id<UIViewControllerAnimatedTransitioning> __nullable)transitional;
 
 @end
 

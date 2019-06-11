@@ -12,7 +12,7 @@
 @end
 
 @implementation OvalMaskTransition {
-    id <UIViewControllerContextTransitioning> _transitionContext;
+    id<UIViewControllerContextTransitioning> _transitionContext;
     CGPoint _anchor;
     UIView *_maskView;
 }
@@ -26,11 +26,11 @@
     return self;
 }
 
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext {
     return 1;
 }
 
-- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext {
     _transitionContext = transitionContext;
     switch (_type) {
         case TransitionOperationPush:
@@ -44,7 +44,7 @@
     }
 }
 
-- (void)doPushAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPushAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     
@@ -62,7 +62,7 @@
     });
 }
 
-- (void)doPopAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPopAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     
@@ -115,7 +115,7 @@ static void ovalTransition(CGPoint origin, CGRect inRect, void(^callback)(CGPath
     callback(minPath.CGPath, maxPath.CGPath);
 }
 
-static CABasicAnimation* pathAnimation(CGPathRef from, CGPathRef to, CFTimeInterval duration, id <CAAnimationDelegate> delegate) {
+static CABasicAnimation* pathAnimation(CGPathRef from, CGPathRef to, CFTimeInterval duration, id<CAAnimationDelegate> delegate) {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
     animation.fromValue = (__bridge id)(from);
     animation.toValue = (__bridge id)(to);

@@ -9,14 +9,11 @@
 #import "_ATProxyRuntime.h"
 #import <objc/runtime.h>
 
-void atp_swizzleInstanceMethod(Class cls, SEL originalSelector, SEL swizzledSelector) {
-    Method originalMethod = class_getInstanceMethod(cls, originalSelector);
-    Method swizzledMethod = class_getInstanceMethod(cls, swizzledSelector);
-    BOOL success = class_addMethod(cls, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
-    if (success) {
-        class_replaceMethod(cls, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
-    }
-    else {
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
+void atp_setter(Class cls, SEL sel, id self, id obj) {
+    if (!cls) cls = [self class];
+    Method method = class_getInstanceMethod(cls, sel);
+    if (method == NULL) return;
+    void(*setterImp)(id, SEL, id) = (void(*)(id, SEL, id))method_getImplementation(method);
+    if (setterImp == NULL) return;
+    setterImp(self, sel, obj);
 }
