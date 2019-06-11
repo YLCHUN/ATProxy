@@ -41,22 +41,9 @@
 - (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
     [_UIViewControllerTransition setupTransition:transition delegate:self.delegate reset:^(id delegate) {
-//        [self atp_setDelegate:delegate];
         atp_setter([UITabBarController class], @selector(setDelegate:), self, delegate);
     }];
 }
-
-
-//+ (void)initialize {
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        atp_swizzleInstanceMethod([UITabBarController class], @selector(setDelegate:), @selector(atp_setDelegate:));
-//    });
-//}
-//
-//- (void)atp_setDelegate:(id<UITabBarControllerDelegate>)delegate {
-//    [self atp_setDelegate:delegate];
-//}
 
 @end
 
