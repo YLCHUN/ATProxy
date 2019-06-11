@@ -16,5 +16,5 @@ typedef enum : NSUInteger {
 } ATGestureRecognizerDirection;
 
 @interface UIPanGestureRecognizer (ATProxy)
--(void)setInteractiveDirection:(ATGestureRecognizerDirection)direction transitional:(void(^__nonnull)(void))transitional;
+- (void)setInteractiveDirection:(ATGestureRecognizerDirection)direction transitional:(void(^__nonnull)(void))transitional;
 @end

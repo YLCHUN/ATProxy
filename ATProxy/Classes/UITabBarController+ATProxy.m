@@ -46,14 +46,14 @@
 }
 
 
-+(void)initialize {
++ (void)initialize {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         atp_swizzleInstanceMethod([UITabBarController class], @selector(setDelegate:), @selector(atp_setDelegate:));
     });
 }
 
--(void)atp_setDelegate:(id<UITabBarControllerDelegate>)delegate {
+- (void)atp_setDelegate:(id <UITabBarControllerDelegate>)delegate {
     [self atp_setDelegate:delegate];
 }
 

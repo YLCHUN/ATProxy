@@ -43,7 +43,7 @@
     }
 }
 
-- (void)doPushAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPushAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *view = [[UIView alloc] initWithFrame:transitionContext.containerView.bounds];
@@ -75,7 +75,7 @@
     }];
 }
 
-- (void)doPopAnimation:(id<UIViewControllerContextTransitioning>)transitionContext {
+- (void)doPopAnimation:(id <UIViewControllerContextTransitioning>)transitionContext {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *view = [[UIView alloc] initWithFrame:transitionContext.containerView.bounds];
@@ -168,7 +168,7 @@ static void ovalTransition(CGPoint origin, CGRect inRect, void(^callback)(CGPath
     callback(minPath.CGPath, maxPath.CGPath);
 }
 
-static CABasicAnimation* pathAnimation(CGPathRef from, CGPathRef to, CFTimeInterval duration, id<CAAnimationDelegate> delegate) {
+static CABasicAnimation* pathAnimation(CGPathRef from, CGPathRef to, CFTimeInterval duration, id <CAAnimationDelegate> delegate) {
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
     animation.fromValue = (__bridge id)(from);
     animation.toValue = (__bridge id)(to);

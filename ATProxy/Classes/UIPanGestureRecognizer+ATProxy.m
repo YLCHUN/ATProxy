@@ -12,7 +12,7 @@
 
 @implementation UIPanGestureRecognizer (ATProxy)
 
--(void)setInteractiveDirection:(ATGestureRecognizerDirection)direction transitional:(void(^)(void))transitional {
+- (void)setInteractiveDirection:(ATGestureRecognizerDirection)direction transitional:(void(^)(void))transitional {
     if (!transitional) return;
     _UIInteractiveTransition *interaction = [[_UIInteractiveTransition alloc] initWithGestureRecognizer:self direction:atDirection(direction) interactive:transitional];
     [self setInteraction:interaction];

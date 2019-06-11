@@ -35,7 +35,7 @@
     reset(t);
 }
 
-- (instancetype)initWithTransition:(id <UIViewControllerAnimatedTransitioning>)transition interaction:(id<UIViewControllerInteractiveTransitioning>)interaction delegate:(id)delegate completion:(void(^)(void))completion {
+- (instancetype)initWithTransition:(id <UIViewControllerAnimatedTransitioning>)transition interaction:(id <UIViewControllerInteractiveTransitioning>)interaction delegate:(id)delegate completion:(void(^)(void))completion {
     _delegate = delegate;
     _completion = completion;
     __weak typeof(self) wself = self;
@@ -46,7 +46,7 @@
     return self;
 }
 
--(void)completion {
+- (void)completion {
     !_completion?:_completion();
     _completion = nil;
 }
@@ -93,42 +93,42 @@
 }
 
 #pragma mark delegate
-- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+- (id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                    animationControllerForOperation:(UINavigationControllerOperation)operation
                                                 fromViewController:(UIViewController *)fromVC
                                                   toViewController:(UIViewController *)toVC {
     return (id <UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+- (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                                    interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController {
     return _interaction;
 }
 
-- (nullable id <UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController
+- (id <UIViewControllerAnimatedTransitioning>)tabBarController:(UITabBarController *)tabBarController
                      animationControllerForTransitionFromViewController:(UIViewController *)fromVC
                                                        toViewController:(UIViewController *)toVC {
     return (id <UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (nullable id <UIViewControllerInteractiveTransitioning>)tabBarController:(UITabBarController *)tabBarController
+- (id <UIViewControllerInteractiveTransitioning>)tabBarController:(UITabBarController *)tabBarController
                                interactionControllerForAnimationController: (id <UIViewControllerAnimatedTransitioning>)animationController {
     return _interaction;
 }
 
--(nullable id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     return (id <UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (nullable id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
+- (id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed {
     return (id <UIViewControllerAnimatedTransitioning>)_transition;
 }
 
-- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
+- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
     return _interaction;
 }
 
-- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
+- (id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator {
     return _interaction;
 }
 @end

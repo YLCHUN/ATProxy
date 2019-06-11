@@ -16,6 +16,6 @@ typedef enum : NSUInteger {
 } ATInteractiveDirection;
 
 @interface _UIInteractiveTransition : UIPercentDrivenInteractiveTransition
-+(instancetype)takeAwayCurrent;
--(instancetype)initWithGestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer direction:(ATInteractiveDirection)direction interactive:(void(^)(void))interactive;
++ (instancetype)takeAwayCurrent;
+- (instancetype)initWithGestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer direction:(ATInteractiveDirection)direction interactive:(void(^)(void))interactive;
 @end

@@ -31,7 +31,7 @@
     [self setupCustomTabBar];
 }
 
--(UITabBar *)customTabBar {
+- (UITabBar *)customTabBar {
     if (!_customTabBar) {
         _customTabBar = [[UITabBar alloc] initWithFrame:self.tabBar.frame];
         _customTabBar.delegate = self;
@@ -42,7 +42,7 @@
     return _customTabBar;
 }
 
--(void)setupCustomTabBar {
+- (void)setupCustomTabBar {
     NSMutableArray *arr = [NSMutableArray array];
     for (int i = 0; i < self.viewControllers.count; i++) {
         UIViewController *vc = self.viewControllers[i];

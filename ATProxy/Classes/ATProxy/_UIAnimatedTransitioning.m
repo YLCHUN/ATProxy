@@ -41,7 +41,7 @@
     }
 }
 
--(void)completion {
+- (void)completion {
     !_completion?:_completion();
     _completion = nil;
 }

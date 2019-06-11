@@ -16,13 +16,13 @@
 }
 
 static _UIInteractiveTransition *_current;
-+(instancetype)takeAwayCurrent {
++ (instancetype)takeAwayCurrent {
     id current = _current;
     _current = nil;
     return current;
 }
 
--(instancetype)initWithGestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer direction:(ATInteractiveDirection)direction interactive:(void(^)(void))interactive {
+- (instancetype)initWithGestureRecognizer:(UIPanGestureRecognizer *)gestureRecognizer direction:(ATInteractiveDirection)direction interactive:(void(^)(void))interactive {
     if (self = [super init]) {
         _interactive = interactive;
         _direction = direction;
@@ -65,7 +65,7 @@ static _UIInteractiveTransition *_current;
     }
 }
 
--(double)pgrPercent:(UIPanGestureRecognizer *)gestureRecognizer  {
+- (double)pgrPercent:(UIPanGestureRecognizer *)gestureRecognizer  {
     UIWindow *window = gestureRecognizer.view.window;
     CGPoint translation = [gestureRecognizer translationInView:window];
     CGSize size = window.bounds.size;
@@ -81,22 +81,22 @@ static _UIInteractiveTransition *_current;
     }
 }
 
--(bool)isDirectionDrag:(UIPanGestureRecognizer *)gestureRecognizer distance:(NSUInteger)distance {
+- (bool)isDirectionDrag:(UIPanGestureRecognizer *)gestureRecognizer distance:(NSUInteger)distance {
     UIWindow *window = gestureRecognizer.view.window;
     CGPoint velocity = [gestureRecognizer velocityInView:window];
     switch (_direction) {
         case ATInteractiveDirectionUp:
-            return velocity.y < -(NSInteger)distance;
+            return velocity.y < - (NSInteger)distance;
         case ATInteractiveDirectionDown:
             return velocity.y > distance;
         case ATInteractiveDirectionLeft:
-            return velocity.x < -(NSInteger)distance;
+            return velocity.x < - (NSInteger)distance;
         case ATInteractiveDirectionRight:
             return velocity.x > distance;
     }
 }
 
--(void)startInteracting {
+- (void)startInteracting {
     _current = self;
     !_interactive?:_interactive();
     _current = nil;

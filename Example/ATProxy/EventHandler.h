@@ -12,10 +12,10 @@ typedef void(^EventHandlerCallback)(id arg);
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventHandler : NSObject
--(void)setEvent:(NSString *)event handle:(EventHandlerCallback)handle;
--(void)callEvent:(NSString *)event arg:(__nullable id)arg;
--(NSArray<NSString *> * _Nullable)events;
--(void)clean;
+- (void)setEvent:(NSString *)event handle:(EventHandlerCallback)handle;
+- (void)callEvent:(NSString *)event arg:(__nullable id)arg;
+- (NSArray<NSString *> * _Nullable)events;
+- (void)clean;
 @end
 
 NS_ASSUME_NONNULL_END

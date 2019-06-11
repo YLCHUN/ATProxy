@@ -29,7 +29,7 @@
     }];
 }
 
-+(void)initialize {
++ (void)initialize {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         atp_swizzleInstanceMethod([UIViewController class], @selector(setTransitioningDelegate:), @selector(atp_setTransitioningDelegate:));
@@ -37,7 +37,7 @@
     });
 }
 
--(void)atp_setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
+- (void)atp_setTransitioningDelegate:(id <UIViewControllerTransitioningDelegate>)transitioningDelegate {
     [self atp_setTransitioningDelegate:transitioningDelegate];
 }
 

@@ -3,8 +3,9 @@
 //  ATProxy
 //
 //  Created by YLCHUN on 2019/6/11.
+//  Copyright © 2019年 ylchun. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-void atp_swizzleInstanceMethod(Class class, SEL originalSelector, SEL swizzledSelector);
+FOUNDATION_EXTERN void atp_swizzleInstanceMethod(Class cls, SEL originalSelector, SEL swizzledSelector);

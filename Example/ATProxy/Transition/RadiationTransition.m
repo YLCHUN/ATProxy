@@ -55,7 +55,7 @@ static UIView* squareView(UIImage *image, CGRect frame) {
     return squareView;
 }
 
--(CGFloat)slicesWithRect:(CGRect)rect size:(NSUInteger)size {
+- (CGFloat)slicesWithRect:(CGRect)rect size:(NSUInteger)size {
     switch (_direction) {
         case RadiationDirectionVertical:
             return ceil(CGRectGetWidth(rect) / size);
