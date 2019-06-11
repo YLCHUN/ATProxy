@@ -24,6 +24,8 @@
 		823EE4CDC566AD9D793D3A702B9B7A9A /* UINavigationController+ATProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DC107C854C7CF8841233AF6C2813CF81 /* UINavigationController+ATProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85E79A1A223583C7E4482B3DCFA5E6F6 /* _UIAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = FC04018659E3D891E0E8E68AC09A5A60 /* _UIAnimatedTransitioning.m */; };
 		A0D5A086AD17AE2EEEDF30C3B69BFD34 /* UITabBarController+ATProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C335F9129ADA7DEB46D7B25EFA5CAE4 /* UITabBarController+ATProxy.m */; };
+		A986D59622AF8B1800EDD16E /* _ATProxyRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A986D59422AF8B1700EDD16E /* _ATProxyRuntime.m */; };
+		A986D59722AF8B1800EDD16E /* _ATProxyRuntime.h in Headers */ = {isa = PBXBuildFile; fileRef = A986D59522AF8B1800EDD16E /* _ATProxyRuntime.h */; };
 		ADB00651209D743423B7AF7CFE6F05A3 /* _UIViewControllerTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 6ABC3E2C4C009519B1858E9C9846F238 /* _UIViewControllerTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD22FCF029E8C9EB0EB3F0F59A47B3DE /* Pods-ATProxy_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D6275CA4A59D551A66C32A92A29EF642 /* Pods-ATProxy_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD3242A7985419BB7CB870FD440A6662 /* ATProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 042E2BBC9CAF55CCBFC48E8EE7392C37 /* ATProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -65,20 +67,22 @@
 		3946A44C5ABF49237DED5263BCB0CB11 /* Pods-ATProxy_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ATProxy_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		492CA2C4DC466D98581CEE3A94E40EED /* Pods-ATProxy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ATProxy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		4A5618CF6100F3712952C8E84708B677 /* UIViewController+ATProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+ATProxy.h"; path = "ATProxy/Classes/UIViewController+ATProxy.h"; sourceTree = "<group>"; };
-		59A1C26F35F7A878FE0C211C11114F3E /* ATProxy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = ATProxy.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		59A1C26F35F7A878FE0C211C11114F3E /* ATProxy.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = ATProxy.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		59CB80823BCA467FD05175D16F3C3A04 /* UIViewController+ATProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+ATProxy.m"; path = "ATProxy/Classes/UIViewController+ATProxy.m"; sourceTree = "<group>"; };
 		6ABC3E2C4C009519B1858E9C9846F238 /* _UIViewControllerTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = _UIViewControllerTransition.h; sourceTree = "<group>"; };
 		7C335F9129ADA7DEB46D7B25EFA5CAE4 /* UITabBarController+ATProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITabBarController+ATProxy.m"; path = "ATProxy/Classes/UITabBarController+ATProxy.m"; sourceTree = "<group>"; };
 		7F72B0910E518D45899338C1CE388C41 /* Pods-ATProxy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ATProxy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		829CFE6D48304D8B0747DB0EC0A8E64D /* Pods-ATProxy_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ATProxy_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		86BBD539D6C2E8F1E5AE9E8A365FC513 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		86BBD539D6C2E8F1E5AE9E8A365FC513 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		897A35002CA9338CFE26C9F69B1C919B /* Pods-ATProxy_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ATProxy_Example-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A986D59422AF8B1700EDD16E /* _ATProxyRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ATProxyRuntime.m; sourceTree = "<group>"; };
+		A986D59522AF8B1800EDD16E /* _ATProxyRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ATProxyRuntime.h; sourceTree = "<group>"; };
 		AC88EC75188AEFCB77CC2E6AC927B73D /* _UIViewControllerTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = _UIViewControllerTransition.m; sourceTree = "<group>"; };
 		B2A58F60C0F4586FA50E61DD64468ED0 /* Pods-ATProxy_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ATProxy_Example.modulemap"; sourceTree = "<group>"; };
 		B3CCD009126D6E21FB526312B7162E4D /* ATProxy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ATProxy-prefix.pch"; sourceTree = "<group>"; };
 		B6E5CD9ABF74E90964146FD123DB9E93 /* Pods-ATProxy_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ATProxy_Example-dummy.m"; sourceTree = "<group>"; };
-		BBE1AFC6AA703644ACC145783C223328 /* Pods_ATProxy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ATProxy_Example.framework; path = "Pods-ATProxy_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBE1AFC6AA703644ACC145783C223328 /* Pods_ATProxy_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATProxy_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCBF1BE9A7A8D4ECFA39333855798FA9 /* Pods-ATProxy_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ATProxy_Tests-umbrella.h"; sourceTree = "<group>"; };
 		C849B0A48D15830019584BB274BA59F9 /* ATProxy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = ATProxy.modulemap; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -86,16 +90,16 @@
 		D1641947ECFD82519CC74A55FBE90F38 /* ATProxy-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ATProxy-Info.plist"; sourceTree = "<group>"; };
 		D6275CA4A59D551A66C32A92A29EF642 /* Pods-ATProxy_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ATProxy_Example-umbrella.h"; sourceTree = "<group>"; };
 		D6301EE107FA512D23EB89A585327D2D /* _UIAnimatedTransitioning.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = _UIAnimatedTransitioning.h; sourceTree = "<group>"; };
-		D68C977BE6ECB75A275F89290B87F0EC /* Pods_ATProxy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ATProxy_Tests.framework; path = "Pods-ATProxy_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D68C977BE6ECB75A275F89290B87F0EC /* Pods_ATProxy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ATProxy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6DCFE37A2CC309D53565E328C96EE9B /* UIPanGestureRecognizer+ATProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPanGestureRecognizer+ATProxy.h"; path = "ATProxy/Classes/UIPanGestureRecognizer+ATProxy.h"; sourceTree = "<group>"; };
 		D71D322E00BCDC1A7B2BE51154E41760 /* ATProxy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ATProxy.xcconfig; sourceTree = "<group>"; };
 		D9FED2640698817D3D985F358F78B7B1 /* ATProxy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ATProxy-dummy.m"; sourceTree = "<group>"; };
 		DA2F3E3A45E488DE82578D2000B85CA0 /* Pods-ATProxy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ATProxy_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DC107C854C7CF8841233AF6C2813CF81 /* UINavigationController+ATProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationController+ATProxy.h"; path = "ATProxy/Classes/UINavigationController+ATProxy.h"; sourceTree = "<group>"; };
-		E124FE0D0A5A222DA9EF852E33F8C9DF /* ATProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ATProxy.framework; path = ATProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E124FE0D0A5A222DA9EF852E33F8C9DF /* ATProxy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ATProxy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB427911B4B7A6300F408C8C1C0C2A1E /* Pods-ATProxy_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ATProxy_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EB50241C336134FCF38388FAD5EBBA3D /* UIPanGestureRecognizer+ATProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPanGestureRecognizer+ATProxy.m"; path = "ATProxy/Classes/UIPanGestureRecognizer+ATProxy.m"; sourceTree = "<group>"; };
-		F4F6F3F5E0010DC639DF6A9762A50D2F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		F4F6F3F5E0010DC639DF6A9762A50D2F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FC04018659E3D891E0E8E68AC09A5A60 /* _UIAnimatedTransitioning.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = _UIAnimatedTransitioning.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +221,8 @@
 		A440EB8D82B8AD81615D4E142AA241C5 /* ATProxy */ = {
 			isa = PBXGroup;
 			children = (
+				A986D59522AF8B1800EDD16E /* _ATProxyRuntime.h */,
+				A986D59422AF8B1700EDD16E /* _ATProxyRuntime.m */,
 				D6301EE107FA512D23EB89A585327D2D /* _UIAnimatedTransitioning.h */,
 				FC04018659E3D891E0E8E68AC09A5A60 /* _UIAnimatedTransitioning.m */,
 				28772ADBD9FB6FF28A1C94ECB5A945EA /* _UIInteractiveTransition.h */,
@@ -296,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC7DFBC634C023C15AFB06D988496214 /* _UIAnimatedTransitioning.h in Headers */,
+				A986D59722AF8B1800EDD16E /* _ATProxyRuntime.h in Headers */,
 				59C359D0017F43CF2995651BE04F6A9C /* _UIInteractiveTransition.h in Headers */,
 				ADB00651209D743423B7AF7CFE6F05A3 /* _UIViewControllerTransition.h in Headers */,
 				3312C0171366B39ED02D251E15257E3B /* ATProxy-umbrella.h in Headers */,
@@ -380,6 +387,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
@@ -441,6 +449,7 @@
 			files = (
 				85E79A1A223583C7E4482B3DCFA5E6F6 /* _UIAnimatedTransitioning.m in Sources */,
 				0648C49C193C5E9F0C74E93FBB38BFC6 /* _UIInteractiveTransition.m in Sources */,
+				A986D59622AF8B1800EDD16E /* _ATProxyRuntime.m in Sources */,
 				3E57D11C07D24742663D976369716D6E /* _UIViewControllerTransition.m in Sources */,
 				50EEB37131AABF85FB6639A8937E36AC /* ATProxy-dummy.m in Sources */,
 				D273D146CF7C0EDDC984D7D9346E9986 /* UINavigationController+ATProxy.m in Sources */,
@@ -521,8 +530,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
 				SYMROOT = "${SRCROOT}/../build";
 			};

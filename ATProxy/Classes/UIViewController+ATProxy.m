@@ -8,6 +8,7 @@
 
 #import "UIViewController+ATProxy.h"
 #import "_UIViewControllerTransition.h"
+#import "_ATProxyRuntime.h"
 
 @implementation UIViewController (ATProxy)
 
@@ -24,8 +25,20 @@
 - (void)setupTransition:(id <UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
     [_UIViewControllerTransition setupTransition:transition delegate:self.transitioningDelegate reset:^(id delegate) {
-        self.transitioningDelegate = delegate;
+        [self atp_setTransitioningDelegate:delegate];
     }];
+}
+
++(void)initialize {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        atp_swizzleInstanceMethod([UIViewController class], @selector(setTransitioningDelegate:), @selector(atp_setTransitioningDelegate:));
+        
+    });
+}
+
+-(void)atp_setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
+    [self atp_setTransitioningDelegate:transitioningDelegate];
 }
 
 @end

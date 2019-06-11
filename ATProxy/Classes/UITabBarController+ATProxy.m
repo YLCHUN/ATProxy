@@ -8,6 +8,7 @@
 
 #import "UITabBarController+ATProxy.h"
 #import "_UIViewControllerTransition.h"
+#import "_ATProxyRuntime.h"
 
 @implementation UITabBarController (ATProxy)
 
@@ -40,8 +41,20 @@
 - (void)setupTransition:(id <UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
     [_UIViewControllerTransition setupTransition:transition delegate:self.delegate reset:^(id delegate) {
-        self.delegate = delegate;
+        [self atp_setDelegate:delegate];
     }];
+}
+
+
++(void)initialize {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        atp_swizzleInstanceMethod([UITabBarController class], @selector(setDelegate:), @selector(atp_setDelegate:));
+    });
+}
+
+-(void)atp_setDelegate:(id<UITabBarControllerDelegate>)delegate {
+    [self atp_setDelegate:delegate];
 }
 
 @end
