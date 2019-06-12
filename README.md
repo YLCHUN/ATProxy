@@ -8,7 +8,7 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
+![example.gif](https://raw.githubusercontent.com/youlianchun/ATProxy/master/Example/ATProxy.gif)
 ### UITabBarController
 ```
 OvalMaskTransition *transition = [[OvalMaskTransition alloc] initWithOperation:UINavigationControllerOperationPush timeInterval:2 anchor:self.view.center];
