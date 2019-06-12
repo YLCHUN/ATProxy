@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.hidesBottomBarWhenPushed = YES;
     NavigationController *vc0 = [[NavigationController alloc] initWithRootViewController:[FirViewController new]];
     vc0.navigationBar.hidden = YES;
     vc0.tabBarItem.title = @"vc0";
