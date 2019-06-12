@@ -72,6 +72,7 @@ static UIDynamicBehavior *getItemDynamicBehavior(id<UIDynamicItem> item) {
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = transitionContext.containerView;
+    [containerView addSubview:fromView];
     [containerView addSubview:toView];
     
     UIView *transitionContainer = [[UIView alloc] initWithFrame:containerView.bounds];

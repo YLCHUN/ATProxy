@@ -39,20 +39,14 @@
     [transitionContext.containerView addSubview:fromView];
     [transitionContext.containerView addSubview:toView];
     
-    UIView *snapshotView = [toView snapshotViewAfterScreenUpdates:YES];
-    [transitionContext.containerView addSubview:snapshotView];
+    toView.layer.anchorPoint = CGPointMake(0, 0.5);
+    toView.layer.position = CGPointMake(CGRectGetWidth(toView.bounds), CGRectGetMidY(toView.bounds));
+    toView.layer.transform = rotateTransform();
     
-    snapshotView.layer.anchorPoint = CGPointMake(0, 0.5);
-    snapshotView.layer.position = CGPointMake(CGRectGetWidth(toView.bounds), CGRectGetMidY(toView.bounds));
-    snapshotView.layer.transform = rotateTransform();
-    
-    toView.hidden = true;
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        snapshotView.layer.transform = CATransform3DIdentity;
-        snapshotView.layer.position = CGPointMake(0, CGRectGetMidY(toView.bounds));
+        toView.layer.transform = CATransform3DIdentity;
+        toView.layer.position = CGPointMake(0, CGRectGetMidY(toView.bounds));
     } completion:^(BOOL finished) {
-        toView.hidden = false;
-        [snapshotView removeFromSuperview];
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
@@ -64,19 +58,13 @@
     [transitionContext.containerView addSubview:toView];
     [transitionContext.containerView addSubview:fromView];
     
-    UIView *snapshotView = [fromView snapshotViewAfterScreenUpdates:YES];
-    [transitionContext.containerView addSubview:snapshotView];
+    fromView.layer.anchorPoint = CGPointMake(0, 0.5);
+    fromView.layer.position = CGPointMake(0, CGRectGetMidY(fromView.bounds));
     
-    snapshotView.layer.anchorPoint = CGPointMake(0, 0.5);
-    snapshotView.layer.position = CGPointMake(0, CGRectGetMidY(fromView.bounds));
-    
-    fromView.hidden = true;
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
-        snapshotView.layer.position = CGPointMake(CGRectGetWidth(fromView.bounds), CGRectGetMidY(fromView.bounds));
-        snapshotView.layer.transform = rotateTransform();
+        fromView.layer.position = CGPointMake(CGRectGetWidth(fromView.bounds), CGRectGetMidY(fromView.bounds));
+        fromView.layer.transform = rotateTransform();
     } completion:^(BOOL finished) {
-        fromView.hidden = false;
-        [snapshotView removeFromSuperview];
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }

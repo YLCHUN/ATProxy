@@ -28,6 +28,7 @@
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = transitionContext.containerView;
+    [containerView addSubview:fromView];
     [containerView addSubview:toView];
     
     UIImage *fromViewSnapshot = getSnapshotImg(fromView, containerView.bounds);

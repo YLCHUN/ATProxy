@@ -25,6 +25,7 @@
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = transitionContext.containerView;
+    [containerView addSubview:fromView];
     [containerView addSubview:toView];
     
     UIView *transitionContainer = getTransitionContainer(containerView.bounds);

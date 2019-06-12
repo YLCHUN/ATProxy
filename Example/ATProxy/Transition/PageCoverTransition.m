@@ -71,6 +71,8 @@
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = [transitionContext containerView];
+    [containerView addSubview:fromView];
+    [containerView addSubview:toView];
     
     CATransform3D transfrom3d = CATransform3DIdentity;
     transfrom3d.m34 = -0.002;
@@ -80,7 +82,6 @@
     setAnchorPoint(snapshotView, CGPointMake(0, 0.5));
     snapshotView.frame = fromView.frame;
     
-    [containerView addSubview:toView];
     [containerView addSubview:snapshotView];
     
     //增加阴影
@@ -110,16 +111,17 @@
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
     UIView *containerView = [transitionContext containerView];
+    [containerView addSubview:toView];
+    [containerView addSubview:fromView];
     
     CATransform3D transfrom3d = CATransform3DIdentity;
     transfrom3d.m34 = -0.002;
     containerView.layer.sublayerTransform = transfrom3d;
     
-    UIView *snapshotView = [toView snapshotViewAfterScreenUpdates:YES];
+    UIView *snapshotView = [toView snapshotViewAfterScreenUpdates:NO];
     snapshotView.frame = toView.frame;
     setAnchorPoint(snapshotView, CGPointMake(0, 0.5));
     
-    [containerView addSubview:fromView];
     [containerView addSubview:snapshotView];
     
     UIView *fShadowView = [self shadowView:fromView.bounds];
