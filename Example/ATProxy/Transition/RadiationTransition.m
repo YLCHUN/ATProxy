@@ -73,10 +73,12 @@ static UIView* squareView(UIImage *image, CGRect frame) {
     switch (_type) {
         case TransitionOperationPush:
             fromViewSnapshot = getSnapshotImg(fromView, fromView.bounds);
+            [containerView addSubview:fromView];
             [containerView addSubview:toView];
             break;
         case TransitionOperationPop:
             fromViewSnapshot = getSnapshotImg(toView, toView.bounds);
+            [containerView addSubview:toView];
             [containerView addSubview:fromView];
             break;
     }

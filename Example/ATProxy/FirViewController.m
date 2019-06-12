@@ -60,52 +60,52 @@
 - (EventHandler *)eventHandler {
     EventHandler *handler = [EventHandler new];
     SecViewController *vc = [SecViewController new];
-    [handler setEvent:@"BrokenTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [BrokenTransition new];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"CheckerboardTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[CheckerboardTransition alloc] initWithTransitionType:TransitionOperationPush];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"RRTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[RRTransition alloc] initWithTransitionType:TransitionOperationPush];
-        [self show:vc transitional:t];
-    }];
+//    [handler setEvent:@"BrokenTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [BrokenTransition new];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"CheckerboardTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[CheckerboardTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"RRTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[RRTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        [self show:vc transitional:t];
+//    }];
     [handler setEvent:@"RadiationTransition" handle:^(id arg) {
         id<UIViewControllerAnimatedTransitioning> t = [[RadiationTransition alloc] initWithTransitionType:TransitionOperationPush direction:RadiationDirectionHorizontal];
         [self show:vc transitional:t];
     }];
-    [handler setEvent:@"BusDoorTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[BusDoorTransition alloc] initWithTransitionType:TransitionOperationPush];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"OvalMaskTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[OvalMaskTransition alloc] initWithTransitionType:TransitionOperationPush anchor:self.view.center];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"PageCoverTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[PageCoverTransition alloc] initWithTransitionType:TransitionOperationPush];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"PageTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[PageTransition alloc] initWithTransitionType:TransitionOperationPush];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"RotateTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[RotateTransition alloc] initWithTransitionType:TransitionOperationPush];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"StackTransition" handle:^(id arg) {
-        id<UIViewControllerAnimatedTransitioning> t = [[StackTransition alloc] initWithTransitionType:TransitionOperationPush];
-        [self show:vc transitional:t];
-    }];
-    [handler setEvent:@"ViewTransition" handle:^(id arg) {
-        ViewTransition *t = [[ViewTransition alloc] initWithTransitionType:TransitionOperationPush];
-        t.from = [self.view viewWithTag:100];
-        t.to = [vc.view viewWithTag:100];
-        [self show:vc transitional:t];
-    }];
+//    [handler setEvent:@"BusDoorTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[BusDoorTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"OvalMaskTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[OvalMaskTransition alloc] initWithTransitionType:TransitionOperationPush anchor:self.view.center];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"PageCoverTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[PageCoverTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"PageTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[PageTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"RotateTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[RotateTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"StackTransition" handle:^(id arg) {
+//        id<UIViewControllerAnimatedTransitioning> t = [[StackTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        [self show:vc transitional:t];
+//    }];
+//    [handler setEvent:@"ViewTransition" handle:^(id arg) {
+//        ViewTransition *t = [[ViewTransition alloc] initWithTransitionType:TransitionOperationPush];
+//        t.from = [self.view viewWithTag:100];
+//        t.to = [vc.view viewWithTag:100];
+//        [self show:vc transitional:t];
+//    }];
     return handler;
 }
 
@@ -113,7 +113,7 @@
     [self presentViewController:vc transitional:t completion:nil];
 //    [self.navigationController pushViewController:vc transitional:t];
 }
--(void)setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
+- (void)setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
     [super setTransitioningDelegate:transitioningDelegate];
 }
 @end

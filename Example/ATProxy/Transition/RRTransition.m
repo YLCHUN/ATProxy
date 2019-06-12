@@ -31,6 +31,7 @@
     double alphaA, alphaB;
     switch (_type) {
         case TransitionOperationPush:
+            [containerView addSubview:fromView];
             [containerView addSubview:toView];
             fromViewSnapshot = getSnapshotImg(fromView, containerView.bounds);
             startTime = 0;
@@ -38,6 +39,7 @@
             alphaB = 0;
             break;
         case TransitionOperationPop:
+            [containerView addSubview:toView];
             [containerView addSubview:fromView];
             fromViewSnapshot = getSnapshotImg(toView, containerView.bounds);
             startTime = [self transitionDuration:transitionContext];
