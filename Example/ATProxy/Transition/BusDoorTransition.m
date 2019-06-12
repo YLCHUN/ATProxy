@@ -60,11 +60,13 @@
     
     fromView.layer.anchorPoint = CGPointMake(0, 0.5);
     fromView.layer.position = CGPointMake(0, CGRectGetMidY(fromView.bounds));
+    fromView.layer.transform = CATransform3DIdentity;
     
     [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
         fromView.layer.position = CGPointMake(CGRectGetWidth(fromView.bounds), CGRectGetMidY(fromView.bounds));
         fromView.layer.transform = rotateTransform();
     } completion:^(BOOL finished) {
+        fromView.layer.transform = CATransform3DIdentity;
         [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
     }];
 }
