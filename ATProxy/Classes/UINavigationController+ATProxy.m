@@ -14,35 +14,35 @@
 
 - (void)atp_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     SEL sel = @selector(pushViewController:animated:);
-    void(*imp)(id, SEL, id, BOOL) = (void(*)(id, SEL, id, BOOL))apt_methodImp([UINavigationController class], sel);
+    void(*imp)(id, SEL, id, BOOL) = (void(*)(id, SEL, id, BOOL))apt_methodOrignImp([UINavigationController class], sel);
     if (imp == NULL) return;
     imp(self, sel, viewController, animated);
 }
 
 - (UIViewController *)atp_popViewControllerAnimated:(BOOL)animated {
     SEL sel = @selector(popViewControllerAnimated:);
-    id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))apt_methodImp([UINavigationController class], sel);
+    id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))apt_methodOrignImp([UINavigationController class], sel);
     if (imp == NULL) return nil;
     return imp(self, sel, animated);
 }
 
 - (NSArray<UIViewController *> *)atp_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     SEL sel = @selector(popToViewController:animated:);
-    id(*imp)(id, SEL, id, BOOL) = (id(*)(id, SEL, id, BOOL))apt_methodImp([UINavigationController class], sel);
+    id(*imp)(id, SEL, id, BOOL) = (id(*)(id, SEL, id, BOOL))apt_methodOrignImp([UINavigationController class], sel);
     if (imp == NULL) return nil;
     return imp(self, sel, viewController, animated);
 }
 
 - (NSArray<UIViewController *> *)atp_popToRootViewControllerAnimated:(BOOL)animated {
     SEL sel = @selector(popToRootViewControllerAnimated:);
-    id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))apt_methodImp([UINavigationController class], sel);
+    id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))apt_methodOrignImp([UINavigationController class], sel);
     if (imp == NULL) return nil;
     return imp(self, sel, animated);
 }
 
 - (void)atp_setDelegate:(id<UINavigationControllerDelegate>)delegate {
     SEL sel = @selector(setDelegate:);
-    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodImp([UINavigationController class], sel);
+    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UINavigationController class], sel);
     if (imp == NULL) return;
     imp(self, sel, delegate);
 }

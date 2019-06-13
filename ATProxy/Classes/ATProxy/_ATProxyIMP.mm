@@ -34,10 +34,10 @@ IMPCache::~IMPCache() {
 
 IMP IMPCache::get_imp(Class cls, SEL sel) {
     IMPContainer::iterator itr_cls = this->cache.find(cls);
-    if (itr_cls == this->cache.end()) return nil;
+    if (itr_cls == this->cache.end()) return NULL;
     
     SELIMP::iterator itr_imp = itr_cls->second.find(sel);
-    if (itr_imp == itr_cls->second.end()) return nil;
+    if (itr_imp == itr_cls->second.end()) return NULL;
     
     return itr_imp->second;
 }
@@ -58,9 +58,8 @@ void IMPCache::set_imp(Class cls, SEL sel, IMP imp) {
     }
 }
 
-
 static IMP atp_findOrignIMP(Class cls, SEL sel) {
-    if (cls == NULL || sel == nil) return nil;
+    if (cls == NULL || sel == nil) return NULL;
     uint count = 0;
     IMP orign = NULL;
     Method *list = class_copyMethodList(cls, &count);
@@ -77,13 +76,21 @@ static IMP atp_findOrignIMP(Class cls, SEL sel) {
     return orign;
 }
 
-IMP apt_methodImp(Class cls, SEL sel) {
+IMP apt_methodOrignImp(Class cls, SEL sel) {
+    if (cls == NULL || sel == nil) return NULL;
+    
     static IMPCache *impCache = new IMPCache();
+    static IMP empty = imp_implementationWithBlock(^{});
+    
     IMP imp = impCache->get_imp(cls, sel);
     if (imp == NULL) {
         imp = atp_findOrignIMP(cls, sel);
+        if (imp == NULL) {
+            imp = empty;
+        }
         impCache->set_imp(cls, sel, imp);
     }
+    if (imp == empty) return NULL;
     return imp;
 }
 

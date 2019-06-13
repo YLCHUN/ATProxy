@@ -14,21 +14,21 @@
 
 - (void)atp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
     SEL sel = @selector(presentViewController:animated:completion:);
-    void(*imp)(id, SEL, id, BOOL, id) = (void(*)(id, SEL, id, BOOL, id))apt_methodImp([UIViewController class], sel);
+    void(*imp)(id, SEL, id, BOOL, id) = (void(*)(id, SEL, id, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
     if (imp == NULL) return;
     imp(self, sel, viewControllerToPresent, flag, completion);
 }
 
 - (void)atp_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
     SEL sel = @selector(dismissViewControllerAnimated:completion:);
-    void(*imp)(id, SEL, BOOL, id) = (void(*)(id, SEL, BOOL, id))apt_methodImp([UIViewController class], sel);
+    void(*imp)(id, SEL, BOOL, id) = (void(*)(id, SEL, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
     if (imp == NULL) return;
     imp(self, sel, flag, completion);
 }
 
 - (void)atp_setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)delegate {
     SEL sel = @selector(setTransitioningDelegate:);
-    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodImp([UIViewController class], sel);
+    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UIViewController class], sel);
     if (imp == NULL) return;
     imp(self, sel, delegate);
 }

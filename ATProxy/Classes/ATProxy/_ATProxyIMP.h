@@ -8,4 +8,4 @@
 
 #import <Foundation/Foundation.h>
 
-FOUNDATION_EXTERN IMP apt_methodImp(Class cls, SEL sel);
+FOUNDATION_EXTERN IMP apt_methodOrignImp(Class cls, SEL sel);
