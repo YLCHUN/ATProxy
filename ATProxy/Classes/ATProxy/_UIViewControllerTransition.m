@@ -23,7 +23,7 @@
 }
 
 + (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition delegate:(id)delegate reset:(void(^)(id delegate))reset {
-    if (!transition) return;
+    if (!transition || !reset) return;
     if (delegate && object_getClass(delegate) == [_UIViewControllerTransition class]) {
         [(_UIViewControllerTransition *)delegate completion];
     }

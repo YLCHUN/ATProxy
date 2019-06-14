@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface _UIAnimatedTransitioning : NSProxy
-- (instancetype)initWithTransition:(id<UIViewControllerAnimatedTransitioning>)transition completion:(void(^)(void))completion;
+- (instancetype __nonnull)initWithTransition:(id<UIViewControllerAnimatedTransitioning> __nonnull)transition completion:(void(^ __nullable)(void))completion;
 @end

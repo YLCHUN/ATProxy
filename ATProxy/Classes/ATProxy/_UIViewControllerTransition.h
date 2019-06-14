@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface _UIViewControllerTransition : NSProxy
-+ (void)setupTransition:(id<UIViewControllerAnimatedTransitioning> __nullable)transition delegate:(id __nullable)delegate reset:(void(^__nonnull)(id __nullable delegate))reset;
++ (void)setupTransition:(id<UIViewControllerAnimatedTransitioning> __nonnull)transition delegate:(id __nullable)delegate reset:(void(^__nonnull)(id __nullable delegate))reset;
 @end
