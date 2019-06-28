@@ -13,24 +13,39 @@
 @implementation UIViewController (atp)
 
 - (void)atp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    SEL sel = @selector(presentViewController:animated:completion:);
-    void(*imp)(id, SEL, id, BOOL, id) = (void(*)(id, SEL, id, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
-    if (imp == NULL) return;
-    imp(self, sel, viewControllerToPresent, flag, completion);
+    [self atp_presentViewController:viewControllerToPresent animated:flag completion:completion];
+    
+//    return;
+//    SEL sel = @selector(presentViewController:animated:completion:);
+//    void(*imp)(id, SEL, id, BOOL, id) = (void(*)(id, SEL, id, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
+//    if (imp) {
+//        imp(self, sel, viewControllerToPresent, flag, completion);
+//    }else {
+//        [self atp_presentViewController:viewControllerToPresent animated:flag completion:completion];
+//    }
 }
 
 - (void)atp_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    SEL sel = @selector(dismissViewControllerAnimated:completion:);
-    void(*imp)(id, SEL, BOOL, id) = (void(*)(id, SEL, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
-    if (imp == NULL) return;
-    imp(self, sel, flag, completion);
+    [self dismissViewControllerAnimated:flag completion:completion];
+    
+//    return;
+//    SEL sel = @selector(dismissViewControllerAnimated:completion:);
+//    void(*imp)(id, SEL, BOOL, id) = (void(*)(id, SEL, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
+//    if (imp) {
+//        imp(self, sel, flag, completion);
+//    }else {
+//        [self dismissViewControllerAnimated:flag completion:completion];
+//    }
 }
 
 - (void)atp_setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)delegate {
     SEL sel = @selector(setTransitioningDelegate:);
     void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UIViewController class], sel);
-    if (imp == NULL) return;
-    imp(self, sel, delegate);
+    if (imp) {
+        imp(self, sel, delegate);
+    }else {
+        [self setTransitioningDelegate:delegate];
+    }
 }
 
 @end

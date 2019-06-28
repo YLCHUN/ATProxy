@@ -13,24 +13,39 @@
 @implementation UITabBarController (atp)
 
 - (void)atp_setSelectedIndex:(NSUInteger)selectedIndex {
-    SEL sel = @selector(setSelectedIndex:);
-    void(*imp)(id, SEL, NSUInteger) = (void(*)(id, SEL, NSUInteger))apt_methodOrignImp([UITabBarController class], sel);
-    if (imp == NULL) return;
-    imp(self, sel, selectedIndex);
+    [self setSelectedIndex:selectedIndex];
+    
+//    return;
+//    SEL sel = @selector(setSelectedIndex:);
+//    void(*imp)(id, SEL, NSUInteger) = (void(*)(id, SEL, NSUInteger))apt_methodOrignImp([UITabBarController class], sel);
+//    if (imp) {
+//        imp(self, sel, selectedIndex);
+//    }else {
+//        [self setSelectedIndex:selectedIndex];
+//    }
 }
 
 - (void)atp_setSelectedViewController:(UIViewController *)selectedViewController {
-    SEL sel = @selector(setSelectedViewController:);
-    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UITabBarController class], sel);
-    if (imp == NULL) return;
-    imp(self, sel, selectedViewController);
+    [self setSelectedViewController:selectedViewController];
+    
+//    return;
+//    SEL sel = @selector(setSelectedViewController:);
+//    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UITabBarController class], sel);
+//    if (imp) {
+//        imp(self, sel, selectedViewController);
+//    }else {
+//        [self setSelectedViewController:selectedViewController];
+//    }
 }
 
 - (void)atp_setDelegate:(id<UITabBarControllerDelegate>)delegate {
     SEL sel = @selector(setDelegate:);
     void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UITabBarController class], sel);
-    if (imp == NULL) return;
-    imp(self, sel, delegate);
+    if (imp) {
+        imp(self, sel, delegate);
+    }else {
+        [self setDelegate:delegate];
+    }
 }
 
 @end
