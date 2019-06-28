@@ -13,7 +13,7 @@
 @implementation UIViewController (atp)
 
 - (void)atp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    [self atp_presentViewController:viewControllerToPresent animated:flag completion:completion];
+    [self presentViewController:viewControllerToPresent animated:flag completion:completion];
     
 //    return;
 //    SEL sel = @selector(presentViewController:animated:completion:);
