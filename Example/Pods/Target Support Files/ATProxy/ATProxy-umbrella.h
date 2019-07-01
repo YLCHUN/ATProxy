@@ -12,10 +12,6 @@
 
 #import "ATProxy.h"
 #import "ATOriginal.h"
-#import "UINavigationController+ATProxy.h"
-#import "UITabBarController+ATProxy.h"
-#import "UIViewController+ATProxy.h"
-#import "UIPanGestureRecognizer+ATProxy.h"
 
 FOUNDATION_EXPORT double ATProxyVersionNumber;
 FOUNDATION_EXPORT const unsigned char ATProxyVersionString[];

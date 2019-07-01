@@ -9,6 +9,7 @@
 #import "FirViewController.h"
 #import "SecViewController.h"
 #import <ATProxy/ATProxy.h>
+#import <ATProxy/ATOriginal.h>
 #import "EventHandler.h"
 #import "OvalMaskTransition.h"
 #import "PageCoverTransition.h"
@@ -111,7 +112,9 @@
 
 - (void)show:(UIViewController *)vc transitional:(id<UIViewControllerAnimatedTransitioning>) t {
 //    [self presentViewController:vc transitional:t completion:nil];
-    [self.navigationController pushViewController:vc transitional:t];
+    atp_original(^{
+        [self.navigationController pushViewController:vc transitional:t];
+    });
 }
 - (void)setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
     [super setTransitioningDelegate:transitioningDelegate];
