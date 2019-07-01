@@ -111,9 +111,7 @@
 
 - (void)show:(UIViewController *)vc transitional:(id<UIViewControllerAnimatedTransitioning>) t {
 //    [self presentViewController:vc transitional:t completion:nil];
-    atp_original(^{
-        [self.navigationController pushViewController:vc transitional:t];
-    });
+    [self.navigationController pushViewController:vc transitional:t];
 }
 - (void)setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)transitioningDelegate {
     [super setTransitioningDelegate:transitioningDelegate];
