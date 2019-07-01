@@ -9,7 +9,6 @@
 #import "FirViewController.h"
 #import "SecViewController.h"
 #import <ATProxy/ATProxy.h>
-#import <ATProxy/ATOriginal.h>
 #import "EventHandler.h"
 #import "OvalMaskTransition.h"
 #import "PageCoverTransition.h"
