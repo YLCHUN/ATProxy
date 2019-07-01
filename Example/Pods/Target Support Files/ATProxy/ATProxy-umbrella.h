@@ -11,7 +11,6 @@
 #endif
 
 #import "ATProxy.h"
-#import "ATOriginal.h"
 
 FOUNDATION_EXPORT double ATProxyVersionNumber;
 FOUNDATION_EXPORT const unsigned char ATProxyVersionString[];
