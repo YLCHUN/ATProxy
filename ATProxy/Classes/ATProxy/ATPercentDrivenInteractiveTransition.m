@@ -1,21 +1,21 @@
 //
-//  _UIInteractiveTransition.m
+//  ATPercentDrivenInteractiveTransition.m
 //  ATProxy
 //
 //  Created by YLCHUN on 2018/8/5.
 //  Copyright © 2018年 ylchun. All rights reserved.
 //
 
-#import "_UIInteractiveTransition.h"
+#import "ATPercentDrivenInteractiveTransition.h"
 
-@implementation _UIInteractiveTransition
+@implementation ATPercentDrivenInteractiveTransition
 {
     void(^_interactive)(void);
     ATInteractiveDirection _direction;
-    bool _interacting;
+    bool _isInteracting;
 }
 
-static _UIInteractiveTransition *_current;
+static ATPercentDrivenInteractiveTransition *_current;
 + (instancetype)takeAwayCurrent {
     id current = _current;
     _current = nil;
@@ -26,7 +26,7 @@ static _UIInteractiveTransition *_current;
     if (self = [super init]) {
         _interactive = interactive;
         _direction = direction;
-        _interacting = false;
+        _isInteracting = false;
         [gestureRecognizer addTarget:self action:@selector(handle:)];
         if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
             [self handle:gestureRecognizer];
@@ -41,17 +41,17 @@ static _UIInteractiveTransition *_current;
             break;
         case UIGestureRecognizerStateBegan:
             if (![self isDirectionDrag:gestureRecognizer distance:0]) return;
-            _interacting = true;
+            _isInteracting = true;
             [self startInteracting];
             break;
         case UIGestureRecognizerStateChanged:
-            if (!_interacting) return;
+            if (!_isInteracting) return;
             [self updateInteractiveTransition:[self pgrPercent:gestureRecognizer]];
             break;
         case UIGestureRecognizerStateEnded:
         case UIGestureRecognizerStateCancelled:
-            if (!_interacting) return;
-            _interacting = false;
+            if (!_isInteracting) return;
+            _isInteracting = false;
             if ([self isDirectionDrag:gestureRecognizer distance:300] || self.percentComplete >= 0.5) {
                 [self finishInteractiveTransition];
             }else {
@@ -59,7 +59,7 @@ static _UIInteractiveTransition *_current;
             }
             break;
         case UIGestureRecognizerStateFailed:
-            _interacting = false;
+            _isInteracting = false;
             [self cancelInteractiveTransition];
             break;
     }

@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 
 typedef enum : NSUInteger {
-    ATGestureRecognizerDirectionUp,
-    ATGestureRecognizerDirectionDown,
-    ATGestureRecognizerDirectionLeft,
-    ATGestureRecognizerDirectionRight,
-} ATGestureRecognizerDirection;
+    ATGestureDirectionUp,
+    ATGestureDirectionDown,
+    ATGestureDirectionLeft,
+    ATGestureDirectionRight,
+} ATGestureDirection;
 
 @interface UIPanGestureRecognizer (ATProxy)
-- (void)setInteractiveDirection:(ATGestureRecognizerDirection)direction transitional:(void(^__nonnull)(void))transitional;
+- (void)setInteractiveDirection:(ATGestureDirection)direction transitional:(void(^__nonnull)(void))transitional;
 @end

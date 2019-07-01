@@ -1,15 +1,15 @@
 //
-//  _UIAnimatedTransitioning.m
+//  ATAnimatedTransitioningProxy.m
 //  ATProxy
 //
 //  Created by YLCHUN on 2018/7/15.
 //  Copyright © 2018年 ylchun. All rights reserved.
 //
 
-#import "_UIAnimatedTransitioning.h"
+#import "ATAnimatedTransitioningProxy.h"
 #import <objc/runtime.h>
 
-@implementation _UIAnimatedTransitioning {
+@implementation ATAnimatedTransitioningProxy {
     id<UIViewControllerAnimatedTransitioning> _transition;
     void(^_completion)(void);
 }

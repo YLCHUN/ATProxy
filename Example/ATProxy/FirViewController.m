@@ -38,7 +38,7 @@
     UIPanGestureRecognizer *pgr = [[UIPanGestureRecognizer alloc] init];
     [self.view addGestureRecognizer:pgr];
     __weak typeof(self) wself = self;
-    [pgr setInteractiveDirection:ATGestureRecognizerDirectionLeft transitional:^{
+    [pgr setInteractiveDirection:ATGestureDirectionLeft transitional:^{
         [wself push:nil];
         //不支持交互动画
         //CheckerboardTransition

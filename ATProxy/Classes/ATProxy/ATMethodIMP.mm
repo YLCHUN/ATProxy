@@ -1,12 +1,12 @@
 //
-//  _ATProxyIMP.m
+//  ATMethodIMP.m
 //  ATProxy
 //
 //  Created by YLCHUN on 2019/6/11.
 //  Copyright © 2019年 ylchun. All rights reserved.
 //
 
-#import "_ATProxyIMP.h"
+#import "ATMethodIMP.h"
 #import <objc/runtime.h>
 #import <map>
 
@@ -76,7 +76,7 @@ static IMP atp_findOrignIMP(Class cls, SEL sel) {
     return orign;
 }
 
-IMP apt_methodOrignImp(Class cls, SEL sel) {
+IMP atp_methodOrignImp(Class cls, SEL sel) {
     if (cls == NULL || sel == nil) return NULL;
     
     static IMPCache *impCache = new IMPCache();
@@ -94,4 +94,4 @@ IMP apt_methodOrignImp(Class cls, SEL sel) {
     return imp;
 }
 
-
+BOOL kATOriginal = NO;

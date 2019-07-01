@@ -1,5 +1,5 @@
 //
-//  _UIAnimatedTransitioning.h
+//  ATAnimatedTransitioningProxy.h
 //  ATProxy
 //
 //  Created by YLCHUN on 2018/7/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface _UIAnimatedTransitioning : NSProxy
+@interface ATAnimatedTransitioningProxy : NSProxy
 - (instancetype __nonnull)initWithTransition:(id<UIViewControllerAnimatedTransitioning> __nonnull)transition completion:(void(^ __nullable)(void))completion;
 @end

@@ -7,40 +7,42 @@
 //
 
 #import "UIViewController+ATProxy.h"
-#import "_UIViewControllerTransition.h"
-#import "_ATProxyIMP.h"
+#import "ATAnimatedTransitioningDelegateProxy.h"
+#import "ATMethodIMP.h"
 
 @implementation UIViewController (atp)
 
 - (void)atp_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
-    [self presentViewController:viewControllerToPresent animated:flag completion:completion];
-    
-//    return;
-//    SEL sel = @selector(presentViewController:animated:completion:);
-//    void(*imp)(id, SEL, id, BOOL, id) = (void(*)(id, SEL, id, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
-//    if (imp) {
-//        imp(self, sel, viewControllerToPresent, flag, completion);
-//    }else {
-//        [self atp_presentViewController:viewControllerToPresent animated:flag completion:completion];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(presentViewController:animated:completion:);
+        void(*imp)(id, SEL, id, BOOL, id) = (void(*)(id, SEL, id, BOOL, id))atp_methodOrignImp([UIViewController class], sel);
+        if (imp) {
+            imp(self, sel, viewControllerToPresent, flag, completion);
+        }else {
+            [self presentViewController:viewControllerToPresent animated:flag completion:completion];
+        }
+    }else {
+        [self presentViewController:viewControllerToPresent animated:flag completion:completion];
+    }
 }
 
 - (void)atp_dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion {
-    [self dismissViewControllerAnimated:flag completion:completion];
-    
-//    return;
-//    SEL sel = @selector(dismissViewControllerAnimated:completion:);
-//    void(*imp)(id, SEL, BOOL, id) = (void(*)(id, SEL, BOOL, id))apt_methodOrignImp([UIViewController class], sel);
-//    if (imp) {
-//        imp(self, sel, flag, completion);
-//    }else {
-//        [self dismissViewControllerAnimated:flag completion:completion];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(dismissViewControllerAnimated:completion:);
+        void(*imp)(id, SEL, BOOL, id) = (void(*)(id, SEL, BOOL, id))atp_methodOrignImp([UIViewController class], sel);
+        if (imp) {
+            imp(self, sel, flag, completion);
+        }else {
+            [self dismissViewControllerAnimated:flag completion:completion];
+        }
+    }else {
+        [self dismissViewControllerAnimated:flag completion:completion];
+    }
 }
 
 - (void)atp_setTransitioningDelegate:(id<UIViewControllerTransitioningDelegate>)delegate {
     SEL sel = @selector(setTransitioningDelegate:);
-    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UIViewController class], sel);
+    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))atp_methodOrignImp([UIViewController class], sel);
     if (imp) {
         imp(self, sel, delegate);
     }else {
@@ -64,7 +66,7 @@
 
 - (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
-    [_UIViewControllerTransition setupTransition:transition delegate:self.transitioningDelegate reset:^(id delegate) {
+    [ATAnimatedTransitioningDelegateProxy setupTransition:transition delegate:self.transitioningDelegate reset:^(id delegate) {
         [self atp_setTransitioningDelegate:delegate];
     }];
 }

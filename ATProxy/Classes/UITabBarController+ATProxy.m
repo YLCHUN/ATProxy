@@ -7,40 +7,42 @@
 //
 
 #import "UITabBarController+ATProxy.h"
-#import "_UIViewControllerTransition.h"
-#import "_ATProxyIMP.h"
+#import "ATAnimatedTransitioningDelegateProxy.h"
+#import "ATMethodIMP.h"
 
 @implementation UITabBarController (atp)
 
 - (void)atp_setSelectedIndex:(NSUInteger)selectedIndex {
-    [self setSelectedIndex:selectedIndex];
-    
-//    return;
-//    SEL sel = @selector(setSelectedIndex:);
-//    void(*imp)(id, SEL, NSUInteger) = (void(*)(id, SEL, NSUInteger))apt_methodOrignImp([UITabBarController class], sel);
-//    if (imp) {
-//        imp(self, sel, selectedIndex);
-//    }else {
-//        [self setSelectedIndex:selectedIndex];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(setSelectedIndex:);
+        void(*imp)(id, SEL, NSUInteger) = (void(*)(id, SEL, NSUInteger))atp_methodOrignImp([UITabBarController class], sel);
+        if (imp) {
+            imp(self, sel, selectedIndex);
+        }else {
+            [self setSelectedIndex:selectedIndex];
+        }
+    }else {
+        [self setSelectedIndex:selectedIndex];
+    }
 }
 
 - (void)atp_setSelectedViewController:(UIViewController *)selectedViewController {
-    [self setSelectedViewController:selectedViewController];
-    
-//    return;
-//    SEL sel = @selector(setSelectedViewController:);
-//    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UITabBarController class], sel);
-//    if (imp) {
-//        imp(self, sel, selectedViewController);
-//    }else {
-//        [self setSelectedViewController:selectedViewController];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(setSelectedViewController:);
+        void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))atp_methodOrignImp([UITabBarController class], sel);
+        if (imp) {
+            imp(self, sel, selectedViewController);
+        }else {
+            [self setSelectedViewController:selectedViewController];
+        }
+    }else {
+        [self setSelectedViewController:selectedViewController];
+    }
 }
 
 - (void)atp_setDelegate:(id<UITabBarControllerDelegate>)delegate {
     SEL sel = @selector(setDelegate:);
-    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UITabBarController class], sel);
+    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))atp_methodOrignImp([UITabBarController class], sel);
     if (imp) {
         imp(self, sel, delegate);
     }else {
@@ -80,14 +82,14 @@
 
 - (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
-    [_UIViewControllerTransition setupTransition:transition delegate:self.delegate reset:^(id delegate) {
+    [ATAnimatedTransitioningDelegateProxy setupTransition:transition delegate:self.delegate reset:^(id delegate) {
         [self atp_setDelegate:delegate];
     }];
 }
 
 - (void)atp_setDelegate:(id<UITabBarControllerDelegate>)delegate {
     SEL sel = @selector(setDelegate:);
-    void(*setDelegate)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UITabBarController class], sel);
+    void(*setDelegate)(id, SEL, id) = (void(*)(id, SEL, id))atp_methodOrignImp([UITabBarController class], sel);
     if (setDelegate == NULL) return;
     setDelegate(self, sel, delegate);
 }

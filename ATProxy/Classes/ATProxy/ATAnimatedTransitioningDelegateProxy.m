@@ -1,34 +1,33 @@
 //
-//  ATProxy.m
+//  ATAnimatedTransitioningDelegateProxy.m
 //  ATProxy
 //
 //  Created by YLCHUN on 2018/7/13.
 //  Copyright © 2018年 YLCHUN. All rights reserved.
 //
 
-#import "_UIViewControllerTransition.h"
-#import "_UIAnimatedTransitioning.h"
-#import "_UIInteractiveTransition.h"
+#import "ATAnimatedTransitioningDelegateProxy.h"
+#import "ATAnimatedTransitioningProxy.h"
+#import "ATPercentDrivenInteractiveTransition.h"
 #import <objc/runtime.h>
 
-#pragma mark - _UIViewControllerTransition
-@interface _UIViewControllerTransition() <UINavigationControllerDelegate, UITabBarControllerDelegate, UIViewControllerTransitioningDelegate>
+@interface ATAnimatedTransitioningDelegateProxy() <UINavigationControllerDelegate, UITabBarControllerDelegate, UIViewControllerTransitioningDelegate>
 @end
 
-@implementation _UIViewControllerTransition {
-    _UIAnimatedTransitioning *_transition;
-    _UIInteractiveTransition *_interaction;
+@implementation ATAnimatedTransitioningDelegateProxy {
+    ATAnimatedTransitioningProxy *_transition;
+    ATPercentDrivenInteractiveTransition *_interaction;
     void(^_completion)(void);
     id _delegate;
 }
 
 + (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition delegate:(id)delegate reset:(void(^)(id delegate))reset {
     if (!transition || !reset) return;
-    if (delegate && object_getClass(delegate) == [_UIViewControllerTransition class]) {
-        [(_UIViewControllerTransition *)delegate completion];
+    if (delegate && object_getClass(delegate) == [ATAnimatedTransitioningDelegateProxy class]) {
+        [(ATAnimatedTransitioningDelegateProxy *)delegate completion];
     }
-    _UIInteractiveTransition *interaction = [_UIInteractiveTransition takeAwayCurrent];
-    __block _UIViewControllerTransition *t = [[self alloc] initWithTransition:transition interaction:interaction delegate:delegate completion:^{
+    ATPercentDrivenInteractiveTransition *interaction = [ATPercentDrivenInteractiveTransition takeAwayCurrent];
+    __block ATAnimatedTransitioningDelegateProxy *t = [[self alloc] initWithTransition:transition interaction:interaction delegate:delegate completion:^{
         t = nil;
         reset(delegate);
     }];
@@ -40,7 +39,7 @@
     _completion = completion;
     __weak typeof(self) wself = self;
     _interaction = interaction;
-    _transition = [[_UIAnimatedTransitioning alloc] initWithTransition:transition completion:^{
+    _transition = [[ATAnimatedTransitioningProxy alloc] initWithTransition:transition completion:^{
         [wself completion];
     }];
     return self;
@@ -116,7 +115,9 @@
     return _interaction;
 }
 
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source {
     return (id<UIViewControllerAnimatedTransitioning>)_transition;
 }
 
@@ -131,5 +132,6 @@
 - (id<UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id<UIViewControllerAnimatedTransitioning>)animator {
     return _interaction;
 }
+
 @end
 

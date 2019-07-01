@@ -7,31 +7,31 @@
 //
 
 #import "UIPanGestureRecognizer+ATProxy.h"
-#import "_UIInteractiveTransition.h"
+#import "ATPercentDrivenInteractiveTransition.h"
 #import <objc/runtime.h>
 
 @implementation UIPanGestureRecognizer (ATProxy)
 
-- (void)setInteractiveDirection:(ATGestureRecognizerDirection)direction transitional:(void(^)(void))transitional {
+- (void)setInteractiveDirection:(ATGestureDirection)direction transitional:(void(^)(void))transitional {
     if (!transitional) return;
-    _UIInteractiveTransition *interaction = [[_UIInteractiveTransition alloc] initWithGestureRecognizer:self direction:atDirection(direction) interactive:transitional];
+    ATPercentDrivenInteractiveTransition *interaction = [[ATPercentDrivenInteractiveTransition alloc] initWithGestureRecognizer:self direction:atDirection(direction) interactive:transitional];
     [self setInteraction:interaction];
 }
 
-- (void)setInteraction:(_UIInteractiveTransition *) interaction {
+- (void)setInteraction:(ATPercentDrivenInteractiveTransition *) interaction {
     static char * nameKey = "interaction";
     objc_setAssociatedObject(self, &nameKey, interaction, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-static ATInteractiveDirection atDirection(ATGestureRecognizerDirection direction) {
+static ATInteractiveDirection atDirection(ATGestureDirection direction) {
     switch (direction) {
-        case ATGestureRecognizerDirectionUp:
+        case ATGestureDirectionUp:
             return ATInteractiveDirectionUp;
-        case ATGestureRecognizerDirectionDown:
+        case ATGestureDirectionDown:
             return ATInteractiveDirectionDown;
-        case ATGestureRecognizerDirectionLeft:
+        case ATGestureDirectionLeft:
             return ATInteractiveDirectionLeft;
-        case ATGestureRecognizerDirectionRight:
+        case ATGestureDirectionRight:
             return ATInteractiveDirectionRight;
     }
 }

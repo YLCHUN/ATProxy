@@ -1,5 +1,5 @@
 //
-//  _UIInteractiveTransition.h
+//  ATPercentDrivenInteractiveTransition.h
 //  ATProxy
 //
 //  Created by YLCHUN on 2018/8/5.
@@ -15,7 +15,7 @@ typedef enum : NSUInteger {
     ATInteractiveDirectionRight,
 } ATInteractiveDirection;
 
-@interface _UIInteractiveTransition : UIPercentDrivenInteractiveTransition
+@interface ATPercentDrivenInteractiveTransition : UIPercentDrivenInteractiveTransition
 + (instancetype __nullable)takeAwayCurrent;
-- (instancetype __nonnull)initWithGestureRecognizer:(UIPanGestureRecognizer * __nonnull)gestureRecognizer direction:(ATInteractiveDirection)direction interactive:(void(^ __nonnull)(void))interactive;
+- (instancetype __nonnull)initWithGestureRecognizer:(__kindof UIPanGestureRecognizer * __nonnull)gestureRecognizer direction:(ATInteractiveDirection)direction interactive:(void(^ __nonnull)(void))interactive;
 @end

@@ -7,63 +7,70 @@
 //
 
 #import "UINavigationController+ATProxy.h"
-#import "_UIViewControllerTransition.h"
-#import "_ATProxyIMP.h"
+#import "ATAnimatedTransitioningDelegateProxy.h"
+#import "ATMethodIMP.h"
 
 @implementation UINavigationController (atp)
 
 - (void)atp_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    [self pushViewController:viewController animated:animated];
-    
-//    return;
-//    SEL sel = @selector(pushViewController:animated:);
-//    void(*imp)(id, SEL, id, BOOL) = (void(*)(id, SEL, id, BOOL))apt_methodOrignImp([UINavigationController class], sel);
-//    if (imp) {
-//        imp(self, sel, viewController, animated);
-//    }else {
-//        [self pushViewController:viewController animated:animated];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(pushViewController:animated:);
+        void(*imp)(id, SEL, id, BOOL) = (void(*)(id, SEL, id, BOOL))atp_methodOrignImp([UINavigationController class], sel);
+        if (imp) {
+            imp(self, sel, viewController, animated);
+        }else {
+            [self pushViewController:viewController animated:animated];
+        }
+    }else {
+        [self pushViewController:viewController animated:animated];
+    }
 }
 
 - (UIViewController *)atp_popViewControllerAnimated:(BOOL)animated {
-    return [self popViewControllerAnimated:animated];
-    
-//    SEL sel = @selector(popViewControllerAnimated:);
-//    id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))apt_methodOrignImp([UINavigationController class], sel);
-//    if (imp) {
-//        return imp(self, sel, animated);
-//    }else {
-//        return [self popViewControllerAnimated:animated];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(popViewControllerAnimated:);
+        id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))atp_methodOrignImp([UINavigationController class], sel);
+        if (imp) {
+            return imp(self, sel, animated);
+        }else {
+            return [self popViewControllerAnimated:animated];
+        }
+    }else {
+        return [self popViewControllerAnimated:animated];
+    }
 }
 
 - (NSArray<UIViewController *> *)atp_popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    return [self popToViewController:viewController animated:animated];
-    
-//    SEL sel = @selector(popToViewController:animated:);
-//    id(*imp)(id, SEL, id, BOOL) = (id(*)(id, SEL, id, BOOL))apt_methodOrignImp([UINavigationController class], sel);
-//    if (imp) {
-//        return imp(self, sel, viewController, animated);
-//    }else {
-//        return [self popToViewController:viewController animated:animated];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(popToViewController:animated:);
+        id(*imp)(id, SEL, id, BOOL) = (id(*)(id, SEL, id, BOOL))atp_methodOrignImp([UINavigationController class], sel);
+        if (imp) {
+            return imp(self, sel, viewController, animated);
+        }else {
+            return [self popToViewController:viewController animated:animated];
+        }
+    }else {
+        return [self popToViewController:viewController animated:animated];
+    }
 }
 
 - (NSArray<UIViewController *> *)atp_popToRootViewControllerAnimated:(BOOL)animated {
-    return [self popToRootViewControllerAnimated:animated];
-    
-//    SEL sel = @selector(popToRootViewControllerAnimated:);
-//    id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))apt_methodOrignImp([UINavigationController class], sel);
-//    if (imp) {
-//        return imp(self, sel, animated);
-//    }else {
-//        return [self popToRootViewControllerAnimated:animated];
-//    }
+    if (kATOriginal) {
+        SEL sel = @selector(popToRootViewControllerAnimated:);
+        id(*imp)(id, SEL, BOOL) = (id(*)(id, SEL, BOOL))atp_methodOrignImp([UINavigationController class], sel);
+        if (imp) {
+            return imp(self, sel, animated);
+        }else {
+            return [self popToRootViewControllerAnimated:animated];
+        }
+    }else {
+        return [self popToRootViewControllerAnimated:animated];
+    }
 }
 
 - (void)atp_setDelegate:(id<UINavigationControllerDelegate>)delegate {
     SEL sel = @selector(setDelegate:);
-    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))apt_methodOrignImp([UINavigationController class], sel);
+    void(*imp)(id, SEL, id) = (void(*)(id, SEL, id))atp_methodOrignImp([UINavigationController class], sel);
     if (imp) {
         imp(self, sel, delegate);
     }else {
@@ -97,7 +104,7 @@
 
 - (void)setupTransition:(id<UIViewControllerAnimatedTransitioning>)transition {
     if (!transition) return;
-    [_UIViewControllerTransition setupTransition:transition delegate:self.delegate reset:^(id delegate) {
+    [ATAnimatedTransitioningDelegateProxy setupTransition:transition delegate:self.delegate reset:^(id delegate) {
         [self atp_setDelegate:delegate];
     }];
 }

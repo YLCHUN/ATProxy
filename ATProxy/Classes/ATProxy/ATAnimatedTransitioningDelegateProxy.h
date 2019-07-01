@@ -1,5 +1,5 @@
 //
-//  _UIViewControllerTransition.h
+//  ATAnimatedTransitioningDelegateProxy.h
 //  ATProxy
 //
 //  Created by YLCHUN on 2018/7/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface _UIViewControllerTransition : NSProxy
+@interface ATAnimatedTransitioningDelegateProxy : NSProxy
 + (void)setupTransition:(id<UIViewControllerAnimatedTransitioning> __nonnull)transition delegate:(id __nullable)delegate reset:(void(^__nonnull)(id __nullable delegate))reset;
 @end
