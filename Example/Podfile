@@ -3,7 +3,10 @@ use_frameworks!
 platform :ios, '8.0'
 
 target 'ATProxy_Example' do
+  
   pod 'ATProxy', :path => '../'
+
+#  pod 'ATProxy'
 
   target 'ATProxy_Tests' do
     inherit! :search_paths

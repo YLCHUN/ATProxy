@@ -1,5 +1,7 @@
 PODS:
-  - ATProxy (0.1.0)
+  - ATProxy (0.2.4):
+    - ATProxy/ATProxy (= 0.2.4)
+  - ATProxy/ATProxy (0.2.4)
 
 DEPENDENCIES:
   - ATProxy (from `../`)
@@ -9,8 +11,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  ATProxy: dd99b8b85a2788f85c3e510b51eaed6288594196
+  ATProxy: 3298bd9ba0f9ca2209e2251ab876efd7aad46f65
 
-PODFILE CHECKSUM: 1273e689477091d7541dfc617fc63a546040807a
+PODFILE CHECKSUM: fc87be1aab81f2a67ef7fcd507baef74a8594f5f
 
-COCOAPODS: 1.7.0.beta.3
+COCOAPODS: 1.6.1

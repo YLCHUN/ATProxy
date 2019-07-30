@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ATProxy'
-  s.version          = '0.2.3'
+  s.version          = '0.2.4'
   s.summary          = '转场动画代理的代理，不再关心转场代理，实现灵活运用专场动画和交互动画。'
 
 # This description is used to generate tags and improve search results.
@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+#  s.description      = <<-DESC
+#TODO: Add long description of the pod here.
+#                       DESC
 
   s.homepage         = 'https://github.com/youlianchun/ATProxy'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
@@ -29,14 +29,23 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-
+  s.static_framework = true
   s.source_files = 'ATProxy/Classes/**/*'
+  
+  s.subspec 'ATProxy' do |ss|
+    ss.ios.libraries = 'c++'
+    ss.source_files = 'ATProxy/ATProxy/**/*'
+  end
+  
+  s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'NO',
+  }
   
   # s.resource_bundles = {
   #   'ATProxy' => ['ATProxy/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
+  s.public_header_files = 'ATProxy/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end

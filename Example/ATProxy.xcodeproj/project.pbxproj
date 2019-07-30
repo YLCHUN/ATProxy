@@ -76,7 +76,7 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		7C7C1F1CCDA2E37EA3ACA4F4 /* Pods-ATProxy_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ATProxy_Tests.release.xcconfig"; path = "Target Support Files/Pods-ATProxy_Tests/Pods-ATProxy_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		A721D324099FAECC7443B106 /* ATProxy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ATProxy.podspec; path = ../ATProxy.podspec; sourceTree = "<group>"; };
+		A721D324099FAECC7443B106 /* ATProxy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = ATProxy.podspec; path = ../ATProxy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A986D59822AFD97700EDD16E /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		A986D59922AFD97700EDD16E /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
 		A9C3091C226F00D30034E08D /* StackTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackTransition.m; sourceTree = "<group>"; };
@@ -303,7 +303,6 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				FF69AFDCEAA116C912C9CD24 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -434,24 +433,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FF69AFDCEAA116C912C9CD24 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ATProxy_Example/Pods-ATProxy_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ATProxy/ATProxy.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ATProxy.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ATProxy_Example/Pods-ATProxy_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
