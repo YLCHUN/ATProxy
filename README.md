@@ -9,6 +9,78 @@
 
 ATProxy 是一个基于代理模式的 iOS 转场动画库，为 UIKit 框架中的视图控制器转场提供了简洁易用的 API。它通过 Category 扩展和代理模式，让开发者能够轻松实现自定义转场动画，而无需修改现有的转场逻辑。
 
+## 核心原理架构
+
+```mermaid
+graph TB
+    subgraph "开发者调用层"
+        A[开发者调用] --> B[Category扩展方法]
+    end
+    
+    subgraph "ATProxy核心层"
+        B --> C[ATAnimatedTransitioningDelegateProxy]
+        C --> D[代理委托管理]
+        D --> E[转场生命周期控制]
+        
+        subgraph "核心组件"
+            C1[ATAnimatedTransitioningProxy]
+            C2[ATPercentDrivenInteractiveTransition]
+            C3[代理方法转发]
+            C4[交互式转场控制]
+        end
+        
+        subgraph "转场管理流程"
+            E1[转场设置]
+            E2[代理包装]
+            E3[动画执行]
+            E4[完成回调]
+        end
+        
+        C --> C1
+        C --> C2
+        C1 --> C3
+        C2 --> C4
+        E --> E1
+        E1 --> E2
+        E2 --> E3
+        E3 --> E4
+    end
+    
+    subgraph "方法实现层"
+        E --> F[ATMethodIMP]
+        F --> G[Method Swizzling]
+        G --> H[原始方法调用]
+    end
+    
+    subgraph "转场动画层"
+        E --> I[Transition实现类]
+        I --> J[OvalMaskTransition]
+        I --> K[PageCoverTransition]
+        I --> L[CheckerboardTransition]
+        I --> M[其他Transition...]
+    end
+    
+    subgraph "UIKit系统层"
+        H --> N[UIViewController]
+        H --> O[UINavigationController]
+        H --> P[UITabBarController]
+        H --> Q[UIPanGestureRecognizer]
+    end
+    
+    subgraph "状态管理层"
+        R[TransitionOperation] --> S[Push操作]
+        R --> T[Pop操作]
+        S --> I
+        T --> I
+    end
+    
+    style A fill:#e1f5fe
+    style C fill:#f3e5f5
+    style F fill:#fff3e0
+    style I fill:#e8f5e8
+    style R fill:#fce4ec
+```
+
 ## 核心功能
 
 ### 1. 视图控制器转场
